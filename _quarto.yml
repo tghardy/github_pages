@@ -7,6 +7,6 @@ website:
   navbar:
     left:
       - text: "Home"
-        href: index.md
+        href: pages/index.md
       - text: "Air Quality"
-        href: test.qmd
+        href: pages/test.qmd
