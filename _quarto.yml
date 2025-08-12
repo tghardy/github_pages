@@ -1,3 +1,12 @@
 project:
   type: website
   output-dir: docs
+
+website:
+  title: "My Data Science Blog"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.md
+      - text: "Air Quality"
+        href: test.qmd
