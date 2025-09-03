@@ -6,16 +6,16 @@ title: "Welcome to My Data Science Portfolio"
 
 Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you'll find projects that demonstrate what I've learned and discovered.
 
-## 🎯 What You'll Find Here
+## 🎓 About This Portfolio
 
-### 📊 Data Projects
-See how I explore datasets, create visualizations, and find interesting patterns in data.
+This portfolio shows my work learning data science. Each project includes:
 
-### 🔍 Learning Journey
-Follow along as I learn new skills in Python, data analysis, and data science tools.
+- My code with documentation
+- Visualizations I created
+- What I learned and discovered
+- Challenges I faced and how I solved them
 
-### 💡 What I've Discovered
-Check out the insights and findings from my data explorations.
+I built this site using [Quarto](https://quarto.org/) and host it on [GitHub Pages](https://pages.github.com/).
 
 ## 🛠️ Skills I'm Learning
 
@@ -38,18 +38,12 @@ Learn how I explore datasets to find interesting patterns and answer questions.
 See how I gather data from different sources and prepare it for analysis.
 :::
 
+::: {.g-col-6}
+### [Final Project](projects/final-project.qmd)
+See how I tackle a data science project beginning to end.
 :::
 
-## 🎓 About This Portfolio
-
-This portfolio shows my work learning data science. Each project includes:
-
-- My code and how it works
-- Visualizations I created
-- What I learned and discovered
-- Challenges I faced and how I solved them
-
-I built this site using [Quarto](https://quarto.org/) and host it on [GitHub Pages](https://pages.github.com/).
+:::
 
 ---
 
