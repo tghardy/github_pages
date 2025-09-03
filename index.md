@@ -4,52 +4,53 @@ title: "Welcome to My Data Science Portfolio"
 
 # Hello! I'm [Your Name] 👋
 
-Welcome to my data science portfolio! This site showcases my journey through data science, analytics, and statistical modeling. Here you'll find a collection of projects that demonstrate my skills in data analysis, visualization, and machine learning.
+Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you'll find projects that demonstrate what I've learned and discovered.
 
 ## 🎯 What You'll Find Here
 
-### 📊 Data Analysis Projects
-Explore my work in exploratory data analysis, statistical modeling, and data visualization using tools like Python, R, and various data science libraries.
+### 📊 Data Projects
+See how I explore datasets, create visualizations, and find interesting patterns in data.
 
-### 🔍 Research & Insights
-Discover how I approach real-world problems through data-driven analysis and derive actionable insights from complex datasets.
+### 🔍 Learning Journey
+Follow along as I learn new skills in Python, data analysis, and data science tools.
 
-### 💡 Learning Journey
-Follow along as I document my growth in data science, sharing both successes and lessons learned along the way.
+### 💡 What I've Discovered
+Check out the insights and findings from my data explorations.
 
-## 🛠️ Technical Skills
+## 🛠️ Skills I'm Learning
 
-- **Programming Languages**: Python, R, SQL
-- **Data Analysis**: Pandas, NumPy, Tidyverse
-- **Visualization**: Matplotlib, Seaborn, ggplot2, Plotly
-- **Machine Learning**: Scikit-learn, TensorFlow, PyTorch
-- **Tools**: Jupyter, RStudio, Git, Quarto
+- **Programming**: Python, Pandas for data analysis
+- **Visualization**: Creating charts with Matplotlib and Seaborn
+- **Data Collection**: Getting data from files, websites, and APIs
+- **Analysis**: Finding patterns and answering questions with data
 
-## 📈 Featured Projects
+## 📈 My Projects
 
 ::: {.grid}
 
 ::: {.g-col-6}
-### [Project 1: Exploratory Data Analysis](projects/eda.qmd)
-Deep dive into dataset exploration, uncovering patterns and insights through comprehensive statistical analysis and visualization.
+### [Data Exploration Project](projects/eda.qmd)
+Learn how I explore datasets to find interesting patterns and answer questions.
 :::
 
 ::: {.g-col-6}
-### [Project 2: Data Acquisition](projects/data-acquisition.qmd)
-Learn about data collection methods, web scraping, API usage, and data cleaning techniques.
+### [Data Collection Project](projects/data-acquisition.qmd)
+See how I gather data from different sources and prepare it for analysis.
 :::
 
 :::
 
 ## 🎓 About This Portfolio
 
-This portfolio was created using [Quarto](https://quarto.org/) and is hosted on [GitHub Pages](https://pages.github.com/). Each project includes:
+This portfolio shows my work learning data science. Each project includes:
 
-- Complete source code and documentation
-- Interactive visualizations and plots
-- Detailed methodology and findings
-- Reproducible analysis workflows
+- My code and how it works
+- Visualizations I created
+- What I learned and discovered
+- Challenges I faced and how I solved them
+
+I built this site using [Quarto](https://quarto.org/) and host it on [GitHub Pages](https://pages.github.com/).
 
 ---
 
-*Feel free to explore the projects above or connect with me through the links in the navigation bar!*
+*Thanks for visiting! Feel free to explore my projects and see what I'm learning.*

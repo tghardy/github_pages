@@ -4,7 +4,7 @@
     "href": "projects/index.html",
     "title": "Projects Overview",
     "section": "",
-    "text": "This section contains all the projects I’ve completed during my data science journey. Each project demonstrates different skills and techniques in data analysis, visualization, and modeling.\n\n\n\n\nProjects focused on understanding data through statistical analysis and visualization.\n\n\n\nProjects involving data collection, web scraping, API usage, and data preprocessing.\n\n\n\nProjects implementing various machine learning algorithms and techniques.\n\n\n\nProjects focused on statistical modeling, hypothesis testing, and inference.\n\n\n\n\n\n\n\nSkills: Data visualization, statistical analysis, Python/Pandas Description: A comprehensive exploration of [dataset name], uncovering patterns and insights through various analytical techniques.\n\n\n\nSkills: Web scraping, APIs, data cleaning Description: Collecting and processing data from multiple sources to create a clean, analysis-ready dataset.\n\n\n\nSkills: End-to-end data science workflow Description: A comprehensive project demonstrating the complete data science process from acquisition to modeling to insights.\n\nEach project includes complete documentation, code, and findings. Click on the project titles to explore them in detail.",
+    "text": "This section contains the projects I’ve completed during my data science journey. Each project shows different skills and what I’ve learned.\n\n\n\n\nLearning to understand data through charts and statistics.\n\n\n\nGetting data from websites, files, and other sources.\n\n\n\nPutting everything together in one comprehensive analysis.\n\n\n\n\n\n\n\nWhat I’ll Learn: How to explore data and find interesting patterns Tools: Python, Pandas, Matplotlib Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nWhat I’ll Learn: How to collect and clean real-world data Tools: Python, web scraping or APIs Description: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nWhat I’ll Learn: Complete data science workflow from start to finish Tools: Everything I’ve learned in the course Description: A comprehensive project that shows off all my data science skills.\n\nEach project includes clear templates to help guide my work and document what I learn.",
     "crumbs": [
       "Projects Overview"
     ]
@@ -14,7 +14,7 @@
     "href": "projects/index.html#project-categories",
     "title": "Projects Overview",
     "section": "",
-    "text": "Projects focused on understanding data through statistical analysis and visualization.\n\n\n\nProjects involving data collection, web scraping, API usage, and data preprocessing.\n\n\n\nProjects implementing various machine learning algorithms and techniques.\n\n\n\nProjects focused on statistical modeling, hypothesis testing, and inference.",
+    "text": "Learning to understand data through charts and statistics.\n\n\n\nGetting data from websites, files, and other sources.\n\n\n\nPutting everything together in one comprehensive analysis.",
     "crumbs": [
       "Projects Overview"
     ]
@@ -24,7 +24,7 @@
     "href": "projects/index.html#all-projects",
     "title": "Projects Overview",
     "section": "",
-    "text": "Skills: Data visualization, statistical analysis, Python/Pandas Description: A comprehensive exploration of [dataset name], uncovering patterns and insights through various analytical techniques.\n\n\n\nSkills: Web scraping, APIs, data cleaning Description: Collecting and processing data from multiple sources to create a clean, analysis-ready dataset.\n\n\n\nSkills: End-to-end data science workflow Description: A comprehensive project demonstrating the complete data science process from acquisition to modeling to insights.\n\nEach project includes complete documentation, code, and findings. Click on the project titles to explore them in detail.",
+    "text": "What I’ll Learn: How to explore data and find interesting patterns Tools: Python, Pandas, Matplotlib Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nWhat I’ll Learn: How to collect and clean real-world data Tools: Python, web scraping or APIs Description: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nWhat I’ll Learn: Complete data science workflow from start to finish Tools: Everything I’ve learned in the course Description: A comprehensive project that shows off all my data science skills.\n\nEach project includes clear templates to help guide my work and document what I learn.",
     "crumbs": [
       "Projects Overview"
     ]
@@ -83,67 +83,47 @@
     "href": "projects/data-acquisition.html",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "Objective: [Describe your data collection and cleaning goals]\nData Sources: [List the sources you collected data from]\nTools Used: Python, Requests, BeautifulSoup, Pandas, APIs\n\n\n\nExplain the motivation for your data collection: - What research question or analysis goal drove this project? - Why were these specific data sources chosen? - What challenges did you expect in data collection?\n\n\n\n\n\n\nType: [Web scraping, API, database, etc.]\nURL/Location: [Where the data comes from]\nData Format: [JSON, HTML, CSV, etc.]\nUpdate Frequency: [How often the data changes]\nKey Variables: [What information you’re collecting]\n\n\n\n\n\nType: [Description]\nURL/Location: [Location]\nData Format: [Format]\nKey Variables: [Variables]\n\n\n\n\n\n\n\nIf you used web scraping:\n# Example web scraping code\nimport requests\nfrom bs4 import BeautifulSoup\nimport pandas as pd\nimport time\n\n# Example scraping function\ndef scrape_data(url):\n    \"\"\"\n    Scrape data from a website\n    \"\"\"\n    # Add proper headers to be respectful\n    headers = {\n        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'\n    }\n    \n    response = requests.get(url, headers=headers)\n    soup = BeautifulSoup(response.content, 'html.parser')\n    \n    # Extract data (customize based on your target website)\n    # data = []\n    # for item in soup.find_all('div', class_='data-item'):\n    #     # Extract relevant information\n    #     pass\n    \n    return data\n\n# Respectful scraping with delays\n# urls = ['url1', 'url2', 'url3']\n# all_data = []\n# \n# for url in urls:\n#     data = scrape_data(url)\n#     all_data.extend(data)\n#     time.sleep(1)  # Be respectful to the server\n\n\n\nIf you used APIs:\n# Example API data collection\nimport requests\nimport json\n\ndef get_api_data(endpoint, params=None):\n    \"\"\"\n    Collect data from an API\n    \"\"\"\n    # Add your API key if required\n    # headers = {'Authorization': 'Bearer YOUR_API_KEY'}\n    \n    response = requests.get(endpoint, params=params)\n    \n    if response.status_code == 200:\n        return response.json()\n    else:\n        print(f\"Error: {response.status_code}\")\n        return None\n\n# Example usage\n# api_url = \"https://api.example.com/data\"\n# data = get_api_data(api_url, params={'limit': 100})\n\n\n\nIf you downloaded files:\n# Example file download and processing\nimport urllib.request\nimport os\n\ndef download_file(url, filename):\n    \"\"\"\n    Download a file from a URL\n    \"\"\"\n    try:\n        urllib.request.urlretrieve(url, filename)\n        print(f\"Downloaded {filename}\")\n    except Exception as e:\n        print(f\"Error downloading {filename}: {e}\")\n\n# Example usage\n# file_urls = ['url1.csv', 'url2.json']\n# for i, url in enumerate(file_urls):\n#     download_file(url, f'data_file_{i}.csv')\n\n\n\n\n\n\n# Load and examine raw data\n# raw_data = pd.read_csv('raw_data.csv')  # or load from your source\n# \n# print(\"Dataset shape:\", raw_data.shape)\n# print(\"\\nData types:\")\n# print(raw_data.dtypes)\n# print(\"\\nMissing values:\")\n# print(raw_data.isnull().sum())\n# print(\"\\nFirst few rows:\")\n# print(raw_data.head())\n\n\n\nDocument each cleaning step:\n\n\n# Example missing value handling\n# # Check patterns of missing data\n# import missingno as msno\n# msno.matrix(raw_data)\n# \n# # Handle missing values appropriately\n# cleaned_data = raw_data.copy()\n# \n# # Drop columns with too many missing values\n# threshold = 0.5  # Drop if more than 50% missing\n# cleaned_data = cleaned_data.loc[:, cleaned_data.isnull().mean() &lt; threshold]\n# \n# # Fill missing values for specific columns\n# cleaned_data['numeric_col'].fillna(cleaned_data['numeric_col'].median(), inplace=True)\n# cleaned_data['categorical_col'].fillna('Unknown', inplace=True)\n\n\n\n# Convert data types as needed\n# cleaned_data['date_column'] = pd.to_datetime(cleaned_data['date_column'])\n# cleaned_data['numeric_column'] = pd.to_numeric(cleaned_data['numeric_column'], errors='coerce')\n# cleaned_data['categorical_column'] = cleaned_data['categorical_column'].astype('category')\n\n\n\n# Check and remove duplicates\n# print(f\"Duplicates found: {cleaned_data.duplicated().sum()}\")\n# cleaned_data = cleaned_data.drop_duplicates()\n\n\n\n# Validate data ranges and formats\n# # Check for outliers\n# numeric_cols = cleaned_data.select_dtypes(include=[np.number]).columns\n# for col in numeric_cols:\n#     Q1 = cleaned_data[col].quantile(0.25)\n#     Q3 = cleaned_data[col].quantile(0.75)\n#     IQR = Q3 - Q1\n#     lower_bound = Q1 - 1.5 * IQR\n#     upper_bound = Q3 + 1.5 * IQR\n#     \n#     outliers = cleaned_data[(cleaned_data[col] &lt; lower_bound) | \n#                            (cleaned_data[col] &gt; upper_bound)]\n#     print(f\"{col}: {len(outliers)} outliers detected\")\n\n\n\n\n\nIf you combined multiple sources:\n# Example data integration\n# # Merge datasets\n# final_dataset = pd.merge(source1_cleaned, source2_cleaned, \n#                         on='common_key', how='inner')\n# \n# # Resolve conflicts between sources\n# # Handle different naming conventions\n# # Standardize formats\n\n\n\n\n\n# Summary of final cleaned dataset\n# print(\"Final dataset shape:\", final_dataset.shape)\n# print(\"\\nColumn descriptions:\")\n# for col in final_dataset.columns:\n#     print(f\"- {col}: {final_dataset[col].dtype}\")\n# \n# print(\"\\nBasic statistics:\")\n# print(final_dataset.describe())\n\n\n\nEvaluate the quality of your final dataset:\n\nCompleteness: [Percentage of missing values, coverage of target population]\nAccuracy: [How accurate is the data? Any known issues?]\nConsistency: [Are formats consistent? Any conflicting information?]\nTimeliness: [How current is the data? When was it last updated?]\n\n\n\n\n\n\n\nProblem: [What went wrong?] Solution: [How did you solve it?] Lesson Learned: [What would you do differently?]\n\n\n\nProblem: [Description] Solution: [Your approach] Lesson Learned: [Key takeaway]\n\n\n\n\n\nData Source Terms of Service: [Did you comply with website terms?]\nRate Limiting: [How did you ensure respectful data collection?]\nPrivacy: [Any personal data considerations?]\nAttribution: [How did you credit data sources?]\n\n\n\n\n\n\n\nDataset Size: [Final number of records and variables]\nFile Format: [How you saved the data]\nDocumentation: [Metadata and data dictionary created]\n\n\n\n\n\n[How could this dataset be used for analysis?]\n[What research questions could it answer?]\n[What additional data would enhance it?]\n\n\n\n\n\n[Planned analyses using this dataset]\n[Additional data sources to consider]\n[Improvements to the collection process]\n\n\n\n\n\nThe complete code for this project is available in the data-acquisition/ folder of this repository, including: - Data collection scripts - Cleaning and preprocessing code - Documentation and data dictionary - Sample of final dataset (if appropriate to share)\n\n\n\n\n[Data source citations]\n[APIs and tools used]\n[Relevant documentation]\n\n\nThis project demonstrates skills in data collection, web scraping, API usage, and data preprocessing using Python.",
+    "text": "Goal: Collect and clean data for analysis\nWhat I’ll Learn: How to gather data from different sources and prepare it for analysis\nTools: Python, Pandas, web scraping or APIs\n\n\n\n\n\n\nWhat: [Describe your data - what is it about?]\nWhere: [Where did you get it? Website, API, file download?]\nWhy: [Why is this data interesting or useful?]\n\n\n\n\n\nChoose ONE of these methods:\n\n\nimport pandas as pd\n\n# Load your data file\ndata = pd.read_csv('your_file.csv')  # or .xlsx, .json, etc.\nprint(\"Data loaded!\")\nprint(f\"Shape: {data.shape}\")\nprint(data.head())\n\n\n\nimport requests\nimport pandas as pd\n\n# Example API call\nurl = \"https://api.example.com/data\"\nresponse = requests.get(url)\ndata = response.json()\n\n# Convert to DataFrame\ndf = pd.DataFrame(data)\n\n\n\nimport requests\nfrom bs4 import BeautifulSoup\nimport pandas as pd\n\n# Get the webpage\nurl = \"https://example.com\"\nresponse = requests.get(url)\nsoup = BeautifulSoup(response.content, 'html.parser')\n\n# Extract data (you'll customize this part)\n# data = []\n# for item in soup.find_all('div', class_='data-item'):\n#     data.append(item.text)\n\n\n\n\n\n\n# Basic info about the data\nprint(\"Dataset shape:\", data.shape)\nprint(\"\\nColumn names:\", data.columns.tolist())\nprint(\"\\nMissing values:\")\nprint(data.isnull().sum())\n\n\n\n\nMissing Values: [How did you handle empty cells?]\nData Types: [Did you need to convert any columns?]\nDuplicates: [Were there any duplicate rows?]\n\n# Example cleaning steps\n# Remove duplicates\ndata = data.drop_duplicates()\n\n# Fill missing values\ndata['column_name'].fillna('Unknown', inplace=True)\n\n# Convert data types\ndata['date_column'] = pd.to_datetime(data['date_column'])\n\n\n\n\nWhat I ended up with: - Rows: [number] records - Columns: [number] variables - Key Variables: [list the most important columns]\n# Summary of final data\nprint(\"Final dataset summary:\")\nprint(data.describe())\n\n\n\n\n\nProblem: [Describe the issue] Solution: [How I fixed it]\n\n\n\nProblem: [Describe the issue] Solution: [How I fixed it]\n\n\n\n\n\n[Key skill or insight #1]\n[Key skill or insight #2]\n[Key skill or insight #3]\n\n\n\n\nWith this clean dataset, I could: - [What analysis could you do?] - [What questions could you answer?] - [What visualizations would be interesting?]\n\nThis project taught me how to collect and clean real-world data for analysis.",
     "crumbs": [
       "Data Acquisition Project"
     ]
   },
   {
-    "objectID": "projects/data-acquisition.html#project-overview",
-    "href": "projects/data-acquisition.html#project-overview",
+    "objectID": "projects/data-acquisition.html#overview",
+    "href": "projects/data-acquisition.html#overview",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "Objective: [Describe your data collection and cleaning goals]\nData Sources: [List the sources you collected data from]\nTools Used: Python, Requests, BeautifulSoup, Pandas, APIs",
+    "text": "Goal: Collect and clean data for analysis\nWhat I’ll Learn: How to gather data from different sources and prepare it for analysis\nTools: Python, Pandas, web scraping or APIs",
     "crumbs": [
       "Data Acquisition Project"
     ]
   },
   {
-    "objectID": "projects/data-acquisition.html#introduction",
-    "href": "projects/data-acquisition.html#introduction",
+    "objectID": "projects/data-acquisition.html#my-data-sources",
+    "href": "projects/data-acquisition.html#my-data-sources",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "Explain the motivation for your data collection: - What research question or analysis goal drove this project? - Why were these specific data sources chosen? - What challenges did you expect in data collection?",
+    "text": "What: [Describe your data - what is it about?]\nWhere: [Where did you get it? Website, API, file download?]\nWhy: [Why is this data interesting or useful?]",
     "crumbs": [
       "Data Acquisition Project"
     ]
   },
   {
-    "objectID": "projects/data-acquisition.html#data-sources",
-    "href": "projects/data-acquisition.html#data-sources",
+    "objectID": "projects/data-acquisition.html#how-i-collected-the-data",
+    "href": "projects/data-acquisition.html#how-i-collected-the-data",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "Type: [Web scraping, API, database, etc.]\nURL/Location: [Where the data comes from]\nData Format: [JSON, HTML, CSV, etc.]\nUpdate Frequency: [How often the data changes]\nKey Variables: [What information you’re collecting]\n\n\n\n\n\nType: [Description]\nURL/Location: [Location]\nData Format: [Format]\nKey Variables: [Variables]",
+    "text": "Choose ONE of these methods:\n\n\nimport pandas as pd\n\n# Load your data file\ndata = pd.read_csv('your_file.csv')  # or .xlsx, .json, etc.\nprint(\"Data loaded!\")\nprint(f\"Shape: {data.shape}\")\nprint(data.head())\n\n\n\nimport requests\nimport pandas as pd\n\n# Example API call\nurl = \"https://api.example.com/data\"\nresponse = requests.get(url)\ndata = response.json()\n\n# Convert to DataFrame\ndf = pd.DataFrame(data)\n\n\n\nimport requests\nfrom bs4 import BeautifulSoup\nimport pandas as pd\n\n# Get the webpage\nurl = \"https://example.com\"\nresponse = requests.get(url)\nsoup = BeautifulSoup(response.content, 'html.parser')\n\n# Extract data (you'll customize this part)\n# data = []\n# for item in soup.find_all('div', class_='data-item'):\n#     data.append(item.text)",
     "crumbs": [
       "Data Acquisition Project"
     ]
   },
   {
-    "objectID": "projects/data-acquisition.html#data-collection-methods",
-    "href": "projects/data-acquisition.html#data-collection-methods",
+    "objectID": "projects/data-acquisition.html#cleaning-my-data",
+    "href": "projects/data-acquisition.html#cleaning-my-data",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "If you used web scraping:\n# Example web scraping code\nimport requests\nfrom bs4 import BeautifulSoup\nimport pandas as pd\nimport time\n\n# Example scraping function\ndef scrape_data(url):\n    \"\"\"\n    Scrape data from a website\n    \"\"\"\n    # Add proper headers to be respectful\n    headers = {\n        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'\n    }\n    \n    response = requests.get(url, headers=headers)\n    soup = BeautifulSoup(response.content, 'html.parser')\n    \n    # Extract data (customize based on your target website)\n    # data = []\n    # for item in soup.find_all('div', class_='data-item'):\n    #     # Extract relevant information\n    #     pass\n    \n    return data\n\n# Respectful scraping with delays\n# urls = ['url1', 'url2', 'url3']\n# all_data = []\n# \n# for url in urls:\n#     data = scrape_data(url)\n#     all_data.extend(data)\n#     time.sleep(1)  # Be respectful to the server\n\n\n\nIf you used APIs:\n# Example API data collection\nimport requests\nimport json\n\ndef get_api_data(endpoint, params=None):\n    \"\"\"\n    Collect data from an API\n    \"\"\"\n    # Add your API key if required\n    # headers = {'Authorization': 'Bearer YOUR_API_KEY'}\n    \n    response = requests.get(endpoint, params=params)\n    \n    if response.status_code == 200:\n        return response.json()\n    else:\n        print(f\"Error: {response.status_code}\")\n        return None\n\n# Example usage\n# api_url = \"https://api.example.com/data\"\n# data = get_api_data(api_url, params={'limit': 100})\n\n\n\nIf you downloaded files:\n# Example file download and processing\nimport urllib.request\nimport os\n\ndef download_file(url, filename):\n    \"\"\"\n    Download a file from a URL\n    \"\"\"\n    try:\n        urllib.request.urlretrieve(url, filename)\n        print(f\"Downloaded {filename}\")\n    except Exception as e:\n        print(f\"Error downloading {filename}: {e}\")\n\n# Example usage\n# file_urls = ['url1.csv', 'url2.json']\n# for i, url in enumerate(file_urls):\n#     download_file(url, f'data_file_{i}.csv')",
-    "crumbs": [
-      "Data Acquisition Project"
-    ]
-  },
-  {
-    "objectID": "projects/data-acquisition.html#data-cleaning-and-preprocessing",
-    "href": "projects/data-acquisition.html#data-cleaning-and-preprocessing",
-    "title": "Data Acquisition Project",
-    "section": "",
-    "text": "# Load and examine raw data\n# raw_data = pd.read_csv('raw_data.csv')  # or load from your source\n# \n# print(\"Dataset shape:\", raw_data.shape)\n# print(\"\\nData types:\")\n# print(raw_data.dtypes)\n# print(\"\\nMissing values:\")\n# print(raw_data.isnull().sum())\n# print(\"\\nFirst few rows:\")\n# print(raw_data.head())\n\n\n\nDocument each cleaning step:\n\n\n# Example missing value handling\n# # Check patterns of missing data\n# import missingno as msno\n# msno.matrix(raw_data)\n# \n# # Handle missing values appropriately\n# cleaned_data = raw_data.copy()\n# \n# # Drop columns with too many missing values\n# threshold = 0.5  # Drop if more than 50% missing\n# cleaned_data = cleaned_data.loc[:, cleaned_data.isnull().mean() &lt; threshold]\n# \n# # Fill missing values for specific columns\n# cleaned_data['numeric_col'].fillna(cleaned_data['numeric_col'].median(), inplace=True)\n# cleaned_data['categorical_col'].fillna('Unknown', inplace=True)\n\n\n\n# Convert data types as needed\n# cleaned_data['date_column'] = pd.to_datetime(cleaned_data['date_column'])\n# cleaned_data['numeric_column'] = pd.to_numeric(cleaned_data['numeric_column'], errors='coerce')\n# cleaned_data['categorical_column'] = cleaned_data['categorical_column'].astype('category')\n\n\n\n# Check and remove duplicates\n# print(f\"Duplicates found: {cleaned_data.duplicated().sum()}\")\n# cleaned_data = cleaned_data.drop_duplicates()\n\n\n\n# Validate data ranges and formats\n# # Check for outliers\n# numeric_cols = cleaned_data.select_dtypes(include=[np.number]).columns\n# for col in numeric_cols:\n#     Q1 = cleaned_data[col].quantile(0.25)\n#     Q3 = cleaned_data[col].quantile(0.75)\n#     IQR = Q3 - Q1\n#     lower_bound = Q1 - 1.5 * IQR\n#     upper_bound = Q3 + 1.5 * IQR\n#     \n#     outliers = cleaned_data[(cleaned_data[col] &lt; lower_bound) | \n#                            (cleaned_data[col] &gt; upper_bound)]\n#     print(f\"{col}: {len(outliers)} outliers detected\")",
-    "crumbs": [
-      "Data Acquisition Project"
-    ]
-  },
-  {
-    "objectID": "projects/data-acquisition.html#data-integration",
-    "href": "projects/data-acquisition.html#data-integration",
-    "title": "Data Acquisition Project",
-    "section": "",
-    "text": "If you combined multiple sources:\n# Example data integration\n# # Merge datasets\n# final_dataset = pd.merge(source1_cleaned, source2_cleaned, \n#                         on='common_key', how='inner')\n# \n# # Resolve conflicts between sources\n# # Handle different naming conventions\n# # Standardize formats",
+    "text": "# Basic info about the data\nprint(\"Dataset shape:\", data.shape)\nprint(\"\\nColumn names:\", data.columns.tolist())\nprint(\"\\nMissing values:\")\nprint(data.isnull().sum())\n\n\n\n\nMissing Values: [How did you handle empty cells?]\nData Types: [Did you need to convert any columns?]\nDuplicates: [Were there any duplicate rows?]\n\n# Example cleaning steps\n# Remove duplicates\ndata = data.drop_duplicates()\n\n# Fill missing values\ndata['column_name'].fillna('Unknown', inplace=True)\n\n# Convert data types\ndata['date_column'] = pd.to_datetime(data['date_column'])",
     "crumbs": [
       "Data Acquisition Project"
     ]
@@ -153,57 +133,37 @@
     "href": "projects/data-acquisition.html#final-dataset",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "# Summary of final cleaned dataset\n# print(\"Final dataset shape:\", final_dataset.shape)\n# print(\"\\nColumn descriptions:\")\n# for col in final_dataset.columns:\n#     print(f\"- {col}: {final_dataset[col].dtype}\")\n# \n# print(\"\\nBasic statistics:\")\n# print(final_dataset.describe())\n\n\n\nEvaluate the quality of your final dataset:\n\nCompleteness: [Percentage of missing values, coverage of target population]\nAccuracy: [How accurate is the data? Any known issues?]\nConsistency: [Are formats consistent? Any conflicting information?]\nTimeliness: [How current is the data? When was it last updated?]",
+    "text": "What I ended up with: - Rows: [number] records - Columns: [number] variables - Key Variables: [list the most important columns]\n# Summary of final data\nprint(\"Final dataset summary:\")\nprint(data.describe())",
     "crumbs": [
       "Data Acquisition Project"
     ]
   },
   {
-    "objectID": "projects/data-acquisition.html#challenges-and-solutions",
-    "href": "projects/data-acquisition.html#challenges-and-solutions",
+    "objectID": "projects/data-acquisition.html#challenges-i-faced",
+    "href": "projects/data-acquisition.html#challenges-i-faced",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "Problem: [What went wrong?] Solution: [How did you solve it?] Lesson Learned: [What would you do differently?]\n\n\n\nProblem: [Description] Solution: [Your approach] Lesson Learned: [Key takeaway]",
+    "text": "Problem: [Describe the issue] Solution: [How I fixed it]\n\n\n\nProblem: [Describe the issue] Solution: [How I fixed it]",
     "crumbs": [
       "Data Acquisition Project"
     ]
   },
   {
-    "objectID": "projects/data-acquisition.html#ethical-considerations",
-    "href": "projects/data-acquisition.html#ethical-considerations",
+    "objectID": "projects/data-acquisition.html#what-i-learned",
+    "href": "projects/data-acquisition.html#what-i-learned",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "Data Source Terms of Service: [Did you comply with website terms?]\nRate Limiting: [How did you ensure respectful data collection?]\nPrivacy: [Any personal data considerations?]\nAttribution: [How did you credit data sources?]",
+    "text": "[Key skill or insight #1]\n[Key skill or insight #2]\n[Key skill or insight #3]",
     "crumbs": [
       "Data Acquisition Project"
     ]
   },
   {
-    "objectID": "projects/data-acquisition.html#results-and-next-steps",
-    "href": "projects/data-acquisition.html#results-and-next-steps",
+    "objectID": "projects/data-acquisition.html#next-steps",
+    "href": "projects/data-acquisition.html#next-steps",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "Dataset Size: [Final number of records and variables]\nFile Format: [How you saved the data]\nDocumentation: [Metadata and data dictionary created]\n\n\n\n\n\n[How could this dataset be used for analysis?]\n[What research questions could it answer?]\n[What additional data would enhance it?]\n\n\n\n\n\n[Planned analyses using this dataset]\n[Additional data sources to consider]\n[Improvements to the collection process]",
-    "crumbs": [
-      "Data Acquisition Project"
-    ]
-  },
-  {
-    "objectID": "projects/data-acquisition.html#code-repository",
-    "href": "projects/data-acquisition.html#code-repository",
-    "title": "Data Acquisition Project",
-    "section": "",
-    "text": "The complete code for this project is available in the data-acquisition/ folder of this repository, including: - Data collection scripts - Cleaning and preprocessing code - Documentation and data dictionary - Sample of final dataset (if appropriate to share)",
-    "crumbs": [
-      "Data Acquisition Project"
-    ]
-  },
-  {
-    "objectID": "projects/data-acquisition.html#references",
-    "href": "projects/data-acquisition.html#references",
-    "title": "Data Acquisition Project",
-    "section": "",
-    "text": "[Data source citations]\n[APIs and tools used]\n[Relevant documentation]\n\n\nThis project demonstrates skills in data collection, web scraping, API usage, and data preprocessing using Python.",
+    "text": "With this clean dataset, I could: - [What analysis could you do?] - [What questions could you answer?] - [What visualizations would be interesting?]\n\nThis project taught me how to collect and clean real-world data for analysis.",
     "crumbs": [
       "Data Acquisition Project"
     ]
@@ -213,35 +173,35 @@
     "href": "index.html",
     "title": "Welcome to My Data Science Portfolio",
     "section": "",
-    "text": "Welcome to my data science portfolio! This site showcases my journey through data science, analytics, and statistical modeling. Here you’ll find a collection of projects that demonstrate my skills in data analysis, visualization, and machine learning.\n\n\n\n\nExplore my work in exploratory data analysis, statistical modeling, and data visualization using tools like Python, R, and various data science libraries.\n\n\n\nDiscover how I approach real-world problems through data-driven analysis and derive actionable insights from complex datasets.\n\n\n\nFollow along as I document my growth in data science, sharing both successes and lessons learned along the way.\n\n\n\n\n\nProgramming Languages: Python, R, SQL\nData Analysis: Pandas, NumPy, Tidyverse\nVisualization: Matplotlib, Seaborn, ggplot2, Plotly\nMachine Learning: Scikit-learn, TensorFlow, PyTorch\nTools: Jupyter, RStudio, Git, Quarto\n\n\n\n\n\n\n\nDeep dive into dataset exploration, uncovering patterns and insights through comprehensive statistical analysis and visualization.\n\n\n\nLearn about data collection methods, web scraping, API usage, and data cleaning techniques.\n\n\n\n\n\nThis portfolio was created using Quarto and is hosted on GitHub Pages. Each project includes:\n\nComplete source code and documentation\nInteractive visualizations and plots\nDetailed methodology and findings\nReproducible analysis workflows\n\n\nFeel free to explore the projects above or connect with me through the links in the navigation bar!"
+    "text": "Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you’ll find projects that demonstrate what I’ve learned and discovered.\n\n\n\n\nSee how I explore datasets, create visualizations, and find interesting patterns in data.\n\n\n\nFollow along as I learn new skills in Python, data analysis, and data science tools.\n\n\n\nCheck out the insights and findings from my data explorations.\n\n\n\n\n\nProgramming: Python, Pandas for data analysis\nVisualization: Creating charts with Matplotlib and Seaborn\nData Collection: Getting data from files, websites, and APIs\nAnalysis: Finding patterns and answering questions with data\n\n\n\n\n\n\n\nLearn how I explore datasets to find interesting patterns and answer questions.\n\n\n\nSee how I gather data from different sources and prepare it for analysis.\n\n\n\n\n\nThis portfolio shows my work learning data science. Each project includes:\n\nMy code and how it works\nVisualizations I created\nWhat I learned and discovered\nChallenges I faced and how I solved them\n\nI built this site using Quarto and host it on GitHub Pages.\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
   },
   {
     "objectID": "index.html#what-youll-find-here",
     "href": "index.html#what-youll-find-here",
     "title": "Welcome to My Data Science Portfolio",
     "section": "",
-    "text": "Explore my work in exploratory data analysis, statistical modeling, and data visualization using tools like Python, R, and various data science libraries.\n\n\n\nDiscover how I approach real-world problems through data-driven analysis and derive actionable insights from complex datasets.\n\n\n\nFollow along as I document my growth in data science, sharing both successes and lessons learned along the way."
+    "text": "See how I explore datasets, create visualizations, and find interesting patterns in data.\n\n\n\nFollow along as I learn new skills in Python, data analysis, and data science tools.\n\n\n\nCheck out the insights and findings from my data explorations."
   },
   {
-    "objectID": "index.html#technical-skills",
-    "href": "index.html#technical-skills",
+    "objectID": "index.html#skills-im-learning",
+    "href": "index.html#skills-im-learning",
     "title": "Welcome to My Data Science Portfolio",
     "section": "",
-    "text": "Programming Languages: Python, R, SQL\nData Analysis: Pandas, NumPy, Tidyverse\nVisualization: Matplotlib, Seaborn, ggplot2, Plotly\nMachine Learning: Scikit-learn, TensorFlow, PyTorch\nTools: Jupyter, RStudio, Git, Quarto"
+    "text": "Programming: Python, Pandas for data analysis\nVisualization: Creating charts with Matplotlib and Seaborn\nData Collection: Getting data from files, websites, and APIs\nAnalysis: Finding patterns and answering questions with data"
   },
   {
-    "objectID": "index.html#featured-projects",
-    "href": "index.html#featured-projects",
+    "objectID": "index.html#my-projects",
+    "href": "index.html#my-projects",
     "title": "Welcome to My Data Science Portfolio",
     "section": "",
-    "text": "Deep dive into dataset exploration, uncovering patterns and insights through comprehensive statistical analysis and visualization.\n\n\n\nLearn about data collection methods, web scraping, API usage, and data cleaning techniques."
+    "text": "Learn how I explore datasets to find interesting patterns and answer questions.\n\n\n\nSee how I gather data from different sources and prepare it for analysis."
   },
   {
     "objectID": "index.html#about-this-portfolio",
     "href": "index.html#about-this-portfolio",
     "title": "Welcome to My Data Science Portfolio",
     "section": "",
-    "text": "This portfolio was created using Quarto and is hosted on GitHub Pages. Each project includes:\n\nComplete source code and documentation\nInteractive visualizations and plots\nDetailed methodology and findings\nReproducible analysis workflows\n\n\nFeel free to explore the projects above or connect with me through the links in the navigation bar!"
+    "text": "This portfolio shows my work learning data science. Each project includes:\n\nMy code and how it works\nVisualizations I created\nWhat I learned and discovered\nChallenges I faced and how I solved them\n\nI built this site using Quarto and host it on GitHub Pages.\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
   },
   {
     "objectID": "about.html",
@@ -316,229 +276,19 @@
   {
     "objectID": "projects/eda.html",
     "href": "projects/eda.html",
-    "title": "Exploratory Data Analysis Project",
+    "title": "Data Acquisition Project",
     "section": "",
-    "text": "Objective: [Describe the main goal of your analysis]\nDataset: [Name and source of your dataset]\nTools Used: Python, Pandas, Matplotlib, Seaborn, NumPy\n\n\n\nProvide context for your analysis: - Why is this dataset interesting? - What questions are you trying to answer? - What hypotheses do you have?\n\n\n\n\n\n\nSource: [Where did the data come from?]\nSize: [Number of rows and columns]\nTime Period: [When was this data collected?]\nKey Variables: [List and describe important variables]\n\n# Example code structure - replace with your actual analysis\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load your data\n# df = pd.read_csv('your_dataset.csv')\n\n# Display basic information\n# print(df.info())\n# print(df.describe())\n\n\n\n\nDocument any data cleaning steps: - Missing value handling - Outlier detection and treatment - Data type conversions - Feature engineering\n# Example data cleaning code\n# Check for missing values\n# print(df.isnull().sum())\n\n# Handle missing values\n# df = df.dropna()  # or other appropriate method\n\n# Check for duplicates\n# print(df.duplicated().sum())\n\n\n\n\n\nAnalyze individual variables:\n# Example: Distribution of a numeric variable\n# plt.figure(figsize=(10, 6))\n# plt.hist(df['numeric_column'], bins=30, alpha=0.7)\n# plt.title('Distribution of [Variable Name]')\n# plt.xlabel('[Variable Name]')\n# plt.ylabel('Frequency')\n# plt.show()\n\n\n\nExplore relationships between variables:\n# Example: Correlation analysis\n# correlation_matrix = df.corr()\n# plt.figure(figsize=(12, 8))\n# sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0)\n# plt.title('Correlation Matrix')\n# plt.show()\n\n\n\nExamine complex relationships:\n# Example: Pair plot for multiple variables\n# sns.pairplot(df[['var1', 'var2', 'var3', 'target']], hue='target')\n# plt.show()\n\n\n\n\nSummarize your main discoveries:\n\nFinding 1: [Describe what you found and why it’s important]\nFinding 2: [Another key insight]\nFinding 3: [Additional discovery]\n\n\n\n\nPattern 1: [Describe the pattern and its implications]\nPattern 2: [Another notable pattern]\n\n\n\n\n\n[Describe anything that surprised you]\n[How did these results differ from your initial hypotheses?]\n\n\n\n\n\n\n\n\n[What are the limitations of your analysis?]\n[What assumptions did you make?]\n[What data quality issues existed?]\n\n\n\n\n\n[What additional analysis could be done?]\n[What other data sources could be helpful?]\n[What questions remain unanswered?]\n\n\n\n\n\nSummarize the overall insights from your exploratory data analysis:\n\n[Main takeaway 1]\n[Main takeaway 2]\n[How these findings could be applied]\n\n\n\n\n\n[Data source]\n[Any papers or articles that informed your analysis]\n[Tools and libraries used]\n\n\nThis project demonstrates skills in data exploration, statistical analysis, and data visualization using Python.",
+    "text": "FIXME",
     "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#project-overview",
-    "href": "projects/eda.html#project-overview",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "Objective: [Describe the main goal of your analysis]\nDataset: [Name and source of your dataset]\nTools Used: Python, Pandas, Matplotlib, Seaborn, NumPy",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#introduction",
-    "href": "projects/eda.html#introduction",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "Provide context for your analysis: - Why is this dataset interesting? - What questions are you trying to answer? - What hypotheses do you have?",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#data-description",
-    "href": "projects/eda.html#data-description",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "Source: [Where did the data come from?]\nSize: [Number of rows and columns]\nTime Period: [When was this data collected?]\nKey Variables: [List and describe important variables]\n\n# Example code structure - replace with your actual analysis\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load your data\n# df = pd.read_csv('your_dataset.csv')\n\n# Display basic information\n# print(df.info())\n# print(df.describe())",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#data-cleaning-and-preprocessing",
-    "href": "projects/eda.html#data-cleaning-and-preprocessing",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "Document any data cleaning steps: - Missing value handling - Outlier detection and treatment - Data type conversions - Feature engineering\n# Example data cleaning code\n# Check for missing values\n# print(df.isnull().sum())\n\n# Handle missing values\n# df = df.dropna()  # or other appropriate method\n\n# Check for duplicates\n# print(df.duplicated().sum())",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#exploratory-analysis",
-    "href": "projects/eda.html#exploratory-analysis",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "Analyze individual variables:\n# Example: Distribution of a numeric variable\n# plt.figure(figsize=(10, 6))\n# plt.hist(df['numeric_column'], bins=30, alpha=0.7)\n# plt.title('Distribution of [Variable Name]')\n# plt.xlabel('[Variable Name]')\n# plt.ylabel('Frequency')\n# plt.show()\n\n\n\nExplore relationships between variables:\n# Example: Correlation analysis\n# correlation_matrix = df.corr()\n# plt.figure(figsize=(12, 8))\n# sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0)\n# plt.title('Correlation Matrix')\n# plt.show()\n\n\n\nExamine complex relationships:\n# Example: Pair plot for multiple variables\n# sns.pairplot(df[['var1', 'var2', 'var3', 'target']], hue='target')\n# plt.show()",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#key-findings",
-    "href": "projects/eda.html#key-findings",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "Summarize your main discoveries:\n\nFinding 1: [Describe what you found and why it’s important]\nFinding 2: [Another key insight]\nFinding 3: [Additional discovery]\n\n\n\n\nPattern 1: [Describe the pattern and its implications]\nPattern 2: [Another notable pattern]\n\n\n\n\n\n[Describe anything that surprised you]\n[How did these results differ from your initial hypotheses?]",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#limitations-and-future-work",
-    "href": "projects/eda.html#limitations-and-future-work",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "[What are the limitations of your analysis?]\n[What assumptions did you make?]\n[What data quality issues existed?]\n\n\n\n\n\n[What additional analysis could be done?]\n[What other data sources could be helpful?]\n[What questions remain unanswered?]",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#conclusion",
-    "href": "projects/eda.html#conclusion",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "Summarize the overall insights from your exploratory data analysis:\n\n[Main takeaway 1]\n[Main takeaway 2]\n[How these findings could be applied]",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
-    ]
-  },
-  {
-    "objectID": "projects/eda.html#references",
-    "href": "projects/eda.html#references",
-    "title": "Exploratory Data Analysis Project",
-    "section": "",
-    "text": "[Data source]\n[Any papers or articles that informed your analysis]\n[Tools and libraries used]\n\n\nThis project demonstrates skills in data exploration, statistical analysis, and data visualization using Python.",
-    "crumbs": [
-      "Exploratory Data Analysis Project"
+      "Data Acquisition Project"
     ]
   },
   {
     "objectID": "projects/final-project.html",
     "href": "projects/final-project.html",
-    "title": "Final Project",
+    "title": "",
     "section": "",
-    "text": "Provide a high-level overview of your project: - Problem Statement: [What problem are you solving?] - Approach: [What methods did you use?] - Key Findings: [What did you discover?] - Impact: [How could your findings be applied?]\n\n\n\n\n\n[Provide context for your project] - Why is this problem important? - Who would benefit from solving it? - What has been done before?\n\n\n\n\n[Primary research question]\n[Secondary research question]\n[Additional questions you’re exploring]\n\n\n\n\n\nPrimary Objective: [Main goal]\nSecondary Objectives: [Additional goals]\n\n\n\n\nHow will you measure success? - [Specific metric 1] - [Specific metric 2] - [Qualitative assessment criteria]\n\n\n\n\n\n\n\n[Reference to relevant studies or projects]\n[What methods have others used?]\n[What gaps exist in current knowledge?]\n\n\n\n\n\n[What theories or models inform your approach?]\n[What assumptions are you making?]\n\n\n\n\n\n\n\n\n\n\nSource: [Where did the data come from?]\nSize: [Number of observations and variables]\nTime Period: [When was this data collected?]\nCollection Method: [How was it gathered?]\n\n\n\n\n\n[Any supplementary datasets used]\n[External data sources for validation or enhancement]\n\n\n\n\n\n# Import necessary libraries\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import accuracy_score, classification_report\n\n# Load and examine the data\n# df = pd.read_csv('your_dataset.csv')\n# print(\"Dataset shape:\", df.shape)\n# print(\"\\nFirst few rows:\")\n# print(df.head())\n# print(\"\\nData info:\")\n# print(df.info())\n\n\n\n[Describe cleaning step 1]\n[Describe cleaning step 2]\n[Feature engineering or transformation steps]\n\n# Example data cleaning code\n# # Handle missing values\n# df = df.dropna()  # or appropriate method\n# \n# # Feature engineering\n# df['new_feature'] = df['feature1'] * df['feature2']\n# \n# # Encode categorical variables\n# df_encoded = pd.get_dummies(df, columns=['categorical_column'])\n\n\n\n\n\n\n[Describe your overall analytical strategy]\n\n\n\n\nExploratory Data Analysis: [Brief description]\nStatistical Analysis: [What tests or models?]\nMachine Learning: [Which algorithms?]\nValidation: [How did you validate results?]\n\n\n\n\n\n\n\n\n# Basic descriptive statistics\n# print(df.describe())\n\n# Visualize key variables\n# fig, axes = plt.subplots(2, 2, figsize=(15, 10))\n# \n# # Distribution plots\n# df['target_variable'].hist(ax=axes[0,0], bins=30)\n# axes[0,0].set_title('Distribution of Target Variable')\n# \n# # Add more visualizations\n\n\n\n\n\n[Describe the pattern and include relevant visualizations]\n# Visualization supporting this finding\n# plt.figure(figsize=(10, 6))\n# sns.scatterplot(data=df, x='variable1', y='variable2', hue='target')\n# plt.title('Relationship between Variable1 and Variable2')\n# plt.show()\n\n\n\n[Description and supporting analysis]\n\n\n\n\n# Correlation matrix\n# corr_matrix = df.corr()\n# plt.figure(figsize=(12, 8))\n# sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', center=0)\n# plt.title('Feature Correlation Matrix')\n# plt.show()\n\n\n\n\n\n\n[Explain why you chose specific methods] - [Rationale for method 1] - [Rationale for method 2]\n\n\n\n\n\n# Prepare data for modeling\n# X = df.drop('target', axis=1)\n# y = df['target']\n# \n# # Split the data\n# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n# \n# # Scale features if necessary\n# scaler = StandardScaler()\n# X_train_scaled = scaler.fit_transform(X_train)\n# X_test_scaled = scaler.transform(X_test)\n\n# Train the model\n# from sklearn.ensemble import RandomForestClassifier\n# model1 = RandomForestClassifier(n_estimators=100, random_state=42)\n# model1.fit(X_train_scaled, y_train)\n\n# Make predictions\n# y_pred = model1.predict(X_test_scaled)\n# \n# # Evaluate performance\n# accuracy = accuracy_score(y_test, y_pred)\n# print(f\"Model 1 Accuracy: {accuracy:.3f}\")\n# print(\"\\nClassification Report:\")\n# print(classification_report(y_test, y_pred))\n\n\n\n# Implementation of second model\n# Compare performance with first model\n\n\n\n\n\n\n\nModel\nAccuracy\nPrecision\nRecall\nF1-Score\n\n\n\n\nModel 1\n[value]\n[value]\n[value]\n[value]\n\n\nModel 2\n[value]\n[value]\n[value]\n[value]\n\n\n\n\n\n\n# Analyze feature importance\n# feature_importance = model1.feature_importances_\n# feature_names = X.columns\n# \n# # Create feature importance plot\n# plt.figure(figsize=(10, 8))\n# indices = np.argsort(feature_importance)[::-1]\n# plt.bar(range(len(feature_importance)), feature_importance[indices])\n# plt.xticks(range(len(feature_importance)), [feature_names[i] for i in indices], rotation=45)\n# plt.title('Feature Importance')\n# plt.tight_layout()\n# plt.show()\n\n\n\n\n\n\n\n\n\nEvidence: [What data supports this?]\nSignificance: [Why is this important?]\nConfidence: [How certain are you?]\n\n\n\n\n\nEvidence: [Supporting data]\nSignificance: [Importance]\nConfidence: [Certainty level]\n\n\n\n\n\n\n[Report p-values, confidence intervals, etc.]\n[Discuss practical vs. statistical significance]\n\n\n\n\n\n[Best performing model and its metrics]\n[Validation on test set]\n[Discussion of overfitting/underfitting]\n\n\n\n\n\n\n\n[What do your findings mean in the context of your research questions?]\n\n\n\n[How do your results compare to existing literature or studies?]\n\n\n\n[How could your findings be applied in practice?]\n\n\n\n\n\n\n[What are the limitations of your dataset?]\n[Potential biases or sampling issues]\n\n\n\n\n\n[Constraints of your analytical approach]\n[Assumptions that may not hold]\n\n\n\n\n\n[To what populations/contexts do your findings apply?]\n\n\n\n\n\n\n\n\n\n[Main conclusion 1]\n[Main conclusion 2]\n[Main conclusion 3]\n\n\n\n\n\n[Research Question 1]: [Your answer based on analysis]\n[Research Question 2]: [Your answer]\n\n\n\n\n\n[What new knowledge have you generated?]\n[How does this advance the field?]\n\n\n\n\n\n\n\n[What could be done to extend this work?]\n[Additional data that would be helpful]\n\n\n\n\n\n[Broader questions this work raises]\n[Related problems worth investigating]\n\n\n\n\n\n\n[How could practitioners use your findings?]\n[What systems or processes could be improved?]\n\n\n\n\n\n\n\n[Link to GitHub repository with full code]\n\n\n\n[Complete description of all variables used]\n\n\n\n[Supplementary plots and analyses]\n\n\n\n[Residual plots, validation curves, etc.]\n\n\n\n\n\n[Academic papers and books cited]\nData sources\n[Software and tools used]\n[Online resources and documentation]\n\n\n\n\n\n\n\n\n[Technical skills developed]\n[Domain knowledge gained]\n[Challenges overcome]\n\n\n\n\n\n[Improvements to methodology]\n[Different approaches to try]\n[Better data sources or collection methods]\n\n\n\n\n\nData collection and cleaning\nExploratory data analysis\nStatistical modeling\nMachine learning\nData visualization\nScientific communication\n\n\nThis capstone project demonstrates the complete data science workflow from problem definition through analysis to actionable insights.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#executive-summary",
-    "href": "projects/final-project.html#executive-summary",
-    "title": "Final Project",
-    "section": "",
-    "text": "Provide a high-level overview of your project: - Problem Statement: [What problem are you solving?] - Approach: [What methods did you use?] - Key Findings: [What did you discover?] - Impact: [How could your findings be applied?]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#introduction-and-problem-definition",
-    "href": "projects/final-project.html#introduction-and-problem-definition",
-    "title": "Final Project",
-    "section": "",
-    "text": "[Provide context for your project] - Why is this problem important? - Who would benefit from solving it? - What has been done before?\n\n\n\n\n[Primary research question]\n[Secondary research question]\n[Additional questions you’re exploring]\n\n\n\n\n\nPrimary Objective: [Main goal]\nSecondary Objectives: [Additional goals]\n\n\n\n\nHow will you measure success? - [Specific metric 1] - [Specific metric 2] - [Qualitative assessment criteria]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#literature-review-and-related-work",
-    "href": "projects/final-project.html#literature-review-and-related-work",
-    "title": "Final Project",
-    "section": "",
-    "text": "[Reference to relevant studies or projects]\n[What methods have others used?]\n[What gaps exist in current knowledge?]\n\n\n\n\n\n[What theories or models inform your approach?]\n[What assumptions are you making?]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#data-and-methodology",
-    "href": "projects/final-project.html#data-and-methodology",
-    "title": "Final Project",
-    "section": "",
-    "text": "Source: [Where did the data come from?]\nSize: [Number of observations and variables]\nTime Period: [When was this data collected?]\nCollection Method: [How was it gathered?]\n\n\n\n\n\n[Any supplementary datasets used]\n[External data sources for validation or enhancement]\n\n\n\n\n\n# Import necessary libraries\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import accuracy_score, classification_report\n\n# Load and examine the data\n# df = pd.read_csv('your_dataset.csv')\n# print(\"Dataset shape:\", df.shape)\n# print(\"\\nFirst few rows:\")\n# print(df.head())\n# print(\"\\nData info:\")\n# print(df.info())\n\n\n\n[Describe cleaning step 1]\n[Describe cleaning step 2]\n[Feature engineering or transformation steps]\n\n# Example data cleaning code\n# # Handle missing values\n# df = df.dropna()  # or appropriate method\n# \n# # Feature engineering\n# df['new_feature'] = df['feature1'] * df['feature2']\n# \n# # Encode categorical variables\n# df_encoded = pd.get_dummies(df, columns=['categorical_column'])\n\n\n\n\n\n\n[Describe your overall analytical strategy]\n\n\n\n\nExploratory Data Analysis: [Brief description]\nStatistical Analysis: [What tests or models?]\nMachine Learning: [Which algorithms?]\nValidation: [How did you validate results?]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#exploratory-data-analysis",
-    "href": "projects/final-project.html#exploratory-data-analysis",
-    "title": "Final Project",
-    "section": "",
-    "text": "# Basic descriptive statistics\n# print(df.describe())\n\n# Visualize key variables\n# fig, axes = plt.subplots(2, 2, figsize=(15, 10))\n# \n# # Distribution plots\n# df['target_variable'].hist(ax=axes[0,0], bins=30)\n# axes[0,0].set_title('Distribution of Target Variable')\n# \n# # Add more visualizations\n\n\n\n\n\n[Describe the pattern and include relevant visualizations]\n# Visualization supporting this finding\n# plt.figure(figsize=(10, 6))\n# sns.scatterplot(data=df, x='variable1', y='variable2', hue='target')\n# plt.title('Relationship between Variable1 and Variable2')\n# plt.show()\n\n\n\n[Description and supporting analysis]\n\n\n\n\n# Correlation matrix\n# corr_matrix = df.corr()\n# plt.figure(figsize=(12, 8))\n# sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', center=0)\n# plt.title('Feature Correlation Matrix')\n# plt.show()",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#statistical-analysis-machine-learning",
-    "href": "projects/final-project.html#statistical-analysis-machine-learning",
-    "title": "Final Project",
-    "section": "",
-    "text": "[Explain why you chose specific methods] - [Rationale for method 1] - [Rationale for method 2]\n\n\n\n\n\n# Prepare data for modeling\n# X = df.drop('target', axis=1)\n# y = df['target']\n# \n# # Split the data\n# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n# \n# # Scale features if necessary\n# scaler = StandardScaler()\n# X_train_scaled = scaler.fit_transform(X_train)\n# X_test_scaled = scaler.transform(X_test)\n\n# Train the model\n# from sklearn.ensemble import RandomForestClassifier\n# model1 = RandomForestClassifier(n_estimators=100, random_state=42)\n# model1.fit(X_train_scaled, y_train)\n\n# Make predictions\n# y_pred = model1.predict(X_test_scaled)\n# \n# # Evaluate performance\n# accuracy = accuracy_score(y_test, y_pred)\n# print(f\"Model 1 Accuracy: {accuracy:.3f}\")\n# print(\"\\nClassification Report:\")\n# print(classification_report(y_test, y_pred))\n\n\n\n# Implementation of second model\n# Compare performance with first model\n\n\n\n\n\n\n\nModel\nAccuracy\nPrecision\nRecall\nF1-Score\n\n\n\n\nModel 1\n[value]\n[value]\n[value]\n[value]\n\n\nModel 2\n[value]\n[value]\n[value]\n[value]\n\n\n\n\n\n\n# Analyze feature importance\n# feature_importance = model1.feature_importances_\n# feature_names = X.columns\n# \n# # Create feature importance plot\n# plt.figure(figsize=(10, 8))\n# indices = np.argsort(feature_importance)[::-1]\n# plt.bar(range(len(feature_importance)), feature_importance[indices])\n# plt.xticks(range(len(feature_importance)), [feature_names[i] for i in indices], rotation=45)\n# plt.title('Feature Importance')\n# plt.tight_layout()\n# plt.show()",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#results-and-findings",
-    "href": "projects/final-project.html#results-and-findings",
-    "title": "Final Project",
-    "section": "",
-    "text": "Evidence: [What data supports this?]\nSignificance: [Why is this important?]\nConfidence: [How certain are you?]\n\n\n\n\n\nEvidence: [Supporting data]\nSignificance: [Importance]\nConfidence: [Certainty level]\n\n\n\n\n\n\n[Report p-values, confidence intervals, etc.]\n[Discuss practical vs. statistical significance]\n\n\n\n\n\n[Best performing model and its metrics]\n[Validation on test set]\n[Discussion of overfitting/underfitting]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#discussion-and-interpretation",
-    "href": "projects/final-project.html#discussion-and-interpretation",
-    "title": "Final Project",
-    "section": "",
-    "text": "[What do your findings mean in the context of your research questions?]\n\n\n\n[How do your results compare to existing literature or studies?]\n\n\n\n[How could your findings be applied in practice?]\n\n\n\n\n\n\n[What are the limitations of your dataset?]\n[Potential biases or sampling issues]\n\n\n\n\n\n[Constraints of your analytical approach]\n[Assumptions that may not hold]\n\n\n\n\n\n[To what populations/contexts do your findings apply?]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#conclusions-and-future-work",
-    "href": "projects/final-project.html#conclusions-and-future-work",
-    "title": "Final Project",
-    "section": "",
-    "text": "[Main conclusion 1]\n[Main conclusion 2]\n[Main conclusion 3]\n\n\n\n\n\n[Research Question 1]: [Your answer based on analysis]\n[Research Question 2]: [Your answer]\n\n\n\n\n\n[What new knowledge have you generated?]\n[How does this advance the field?]\n\n\n\n\n\n\n\n[What could be done to extend this work?]\n[Additional data that would be helpful]\n\n\n\n\n\n[Broader questions this work raises]\n[Related problems worth investigating]\n\n\n\n\n\n\n[How could practitioners use your findings?]\n[What systems or processes could be improved?]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#technical-appendix",
-    "href": "projects/final-project.html#technical-appendix",
-    "title": "Final Project",
-    "section": "",
-    "text": "[Link to GitHub repository with full code]\n\n\n\n[Complete description of all variables used]\n\n\n\n[Supplementary plots and analyses]\n\n\n\n[Residual plots, validation curves, etc.]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#references",
-    "href": "projects/final-project.html#references",
-    "title": "Final Project",
-    "section": "",
-    "text": "[Academic papers and books cited]\nData sources\n[Software and tools used]\n[Online resources and documentation]",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "projects/final-project.html#project-reflection",
-    "href": "projects/final-project.html#project-reflection",
-    "title": "Final Project",
-    "section": "",
-    "text": "[Technical skills developed]\n[Domain knowledge gained]\n[Challenges overcome]\n\n\n\n\n\n[Improvements to methodology]\n[Different approaches to try]\n[Better data sources or collection methods]\n\n\n\n\n\nData collection and cleaning\nExploratory data analysis\nStatistical modeling\nMachine learning\nData visualization\nScientific communication\n\n\nThis capstone project demonstrates the complete data science workflow from problem definition through analysis to actionable insights.",
+    "text": "Code",
     "crumbs": [
       "Final Project"
     ]

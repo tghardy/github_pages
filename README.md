@@ -1,144 +1,123 @@
 # Student Portfolio Template
 
-This repository provides a template for creating a personal data science portfolio website using [Quarto](https://quarto.org/) and [GitHub Pages](https://pages.github.com/). Students will use this template to showcase their projects and learning journey throughout the course.
+This repository provides a simple template for creating a personal data science portfolio website using [Quarto](https://quarto.org/) and [GitHub Pages](https://pages.github.com/). Students will use this template to showcase their projects and learning journey.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- [Quarto](https://quarto.org/docs/get-started/) installed on your computer
+- [Quarto](https://quarto.org/docs/get-started/) installed
 - A GitHub account
 - Basic knowledge of Markdown
 
-### Setup Instructions
+### Quick Setup
 
 1. **Create your repository**
-   - Click "Use this template" button (or fork this repository)
-   - Name your repository `your-username.github.io` for a personal site, or any name you prefer
-   - Make sure it's set to **Public**
+   - Use this template to create your own repository
+   - Name it `your-username.github.io` or any name you prefer
+   - Make sure it's **Public**
 
-2. **Clone your repository**
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
-   ```
+2. **Customize your site**
+   - Replace "Your Name" with your actual name in all files
+   - Update your GitHub and LinkedIn links in `_quarto.yml`
+   - Edit the About Me page with your information
 
-3. **Customize your site**
-   - Edit `_quarto.yml` to update the site title and navigation
-   - Modify `index.md` to create your homepage
-   - Add your projects as `.qmd` or `.md` files
+3. **Add your projects**
+   - Use the template files in the `projects/` folder
+   - Follow the simple structure provided
+   - Include your code, visualizations, and findings
 
-4. **Build and preview locally**
-   ```bash
-   quarto preview
-   ```
-
-5. **Deploy to GitHub Pages**
-   - Build your site: `quarto render`
+4. **Deploy to GitHub Pages**
+   - Run `quarto render` to build your site
    - Commit and push your changes
-   - Enable GitHub Pages in your repository settings (Settings → Pages → Source: Deploy from a branch → Branch: main → Folder: /docs)
+   - Enable GitHub Pages: Settings → Pages → Source: Deploy from a branch → Branch: main → Folder: /docs
 
-## 📁 Repository Structure
+## 📁 What's Included
 
 ```
 ├── _quarto.yml          # Site configuration
-├── index.md             # Homepage
-├── README.md            # This file
-├── docs/                # Generated site files (auto-created)
+├── index.md             # Your homepage
+├── about.md             # About me page
 ├── projects/            # Your project files
-│   └── example.qmd      # Example project file
-└── assets/              # Images, data files, etc.
+│   ├── eda.qmd          # Data exploration template
+│   ├── data-acquisition.qmd  # Data collection template
+│   ├── final-project.qmd     # Final project template
+│   └── example-analysis.qmd  # Working example
+└── styles.css           # Custom styling
 ```
 
-## 📝 Adding Content
+## 📝 Creating Projects
 
-### Creating a New Project Page
+Each project template includes:
+- Simple structure with clear sections
+- Code examples you can modify
+- Prompts to guide your writing
+- Space for your findings and insights
 
-1. Create a new `.qmd` file in the `projects/` folder
-2. Add YAML frontmatter at the top:
-   ```yaml
-   ---
-   title: "Your Project Title"
-   author: "Your Name"
-   date: "2024-01-01"
-   format:
-     html:
-       code-fold: true
-       toc: true
-   ---
-   ```
-3. Add your content using Markdown and code chunks
-4. Update `_quarto.yml` to include the new page in navigation
+### Template Features
+- **Student-friendly**: Clear sections and simple language
+- **Guided prompts**: Questions to help you think through each section
+- **Code examples**: Basic Python code you can adapt
+- **Flexible**: Easy to customize for different types of projects
 
-### Supported Content Types
-
-- **Markdown text** with standard formatting
-- **Code chunks** in Python, R, Julia, and more
-- **Mathematical equations** using LaTeX syntax
-- **Interactive plots** and visualizations
-- **Images and media** files
-
-## 🎯 Portfolio Sections (Suggested)
-
-Customize these sections based on your course requirements:
+## 🎯 Portfolio Sections
 
 ### Core Pages
-- **About Me** - Personal introduction and background
-- **Projects Overview** - Summary of all your work
-- **Resume/CV** - Professional experience and skills
+- **About Me** - Your background and interests
+- **Projects** - Showcase of your data science work
 
-### Project Categories
-- **Exploratory Data Analysis (EDA)** - Data investigation and visualization projects
-- **Data Acquisition & Cleaning** - Web scraping, APIs, data wrangling
-- **Statistical Analysis** - Hypothesis testing, modeling projects
-- **Machine Learning** - Predictive modeling and classification projects
-- **Final Project** - Capstone or comprehensive project
+### Project Types
+- **Data Exploration** - Learn to analyze and visualize data
+- **Data Collection** - Practice gathering and cleaning data
+- **Final Project** - Comprehensive project showing all your skills
 
-### Additional Sections
-- **Blog Posts** - Reflections on learning, tutorials you've written
-- **Resources** - Useful links, datasets, tools you've discovered
-- **Contact** - How to reach you professionally
+## 🛠️ Customization
 
-## 🛠️ Customization Tips
+### Change the Look
+- Edit `styles.css` to change colors and fonts
+- Modify `_quarto.yml` to change the theme
+- Add your own logo or images
 
-### Styling Your Site
-- Modify the `theme` in `_quarto.yml` to change the appearance
-- Add custom CSS by creating a `styles.css` file
-- Include your own logo or favicon
+### Add New Projects
+1. Copy one of the template files in `projects/`
+2. Rename it and customize the content
+3. Add it to the navigation in `_quarto.yml`
 
-### Navigation
-- Update the `navbar` section in `_quarto.yml` to add/remove pages
-- Create dropdown menus for organized navigation
-- Add external links to your GitHub, LinkedIn, etc.
+## � Tips for Students
 
-### Code Presentation
-- Use `code-fold: true` to make code collapsible
-- Add `code-tools: true` for interactive code viewing
-- Include `fig-cap` for proper figure captions
+### Getting Started
+- Start with the simpler templates and gradually add complexity
+- Focus on telling the story of what you learned
+- Include both successes and challenges you faced
 
-## 📚 Resources
+### Writing Your Projects
+- Use the prompts in the templates to guide your writing
+- Include visualizations to make your work engaging
+- Explain your code and findings in plain language
 
-- [Quarto Documentation](https://quarto.org/docs/)
-- [Quarto Gallery](https://quarto.org/docs/gallery/) - Examples and inspiration
-- [GitHub Pages Documentation](https://docs.github.com/en/pages)
-- [Markdown Guide](https://www.markdownguide.org/)
+### Making It Professional
+- Keep your writing clear and concise
+- Include proper citations for data sources
+- Proofread before publishing
 
-## 🆘 Troubleshooting
+## 🆘 Need Help?
 
 ### Common Issues
-- **Site not updating**: Check that GitHub Pages is enabled and pointing to the `/docs` folder
-- **Build errors**: Run `quarto check` to diagnose issues
-- **Local preview not working**: Ensure Quarto is properly installed and updated
+- **Site not building**: Make sure all file extensions are correct (.qmd for code, .md for text only)
+- **GitHub Pages not updating**: Check that Pages is enabled and pointing to /docs folder
+- **Code not running**: Ensure you have Python and required packages installed
 
-### Getting Help
-- Check the [Quarto FAQ](https://quarto.org/docs/faq/)
-- Post questions in course discussion forums
-- Review classmates' repositories for examples
+### Resources
+- [Quarto Documentation](https://quarto.org/docs/)
+- [Markdown Guide](https://www.markdownguide.org/)
+- [GitHub Pages Help](https://docs.github.com/en/pages)
 
-## 📄 License
+## 📄 For Instructors
 
-This template is provided for educational purposes. Feel free to modify and use it for your personal portfolio.
+See `INSTRUCTOR_SETUP.md` for guidance on customizing this template for your course.
 
 ---
 
-**Happy coding and showcasing your data science journey! 🎉**
+**Ready to start building your data science portfolio? 🎉**
+
+*This template is designed to be simple enough for beginners while still creating professional-looking results.*
 
