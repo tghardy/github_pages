@@ -21,11 +21,11 @@ Write a brief introduction about yourself here. Include:
 ## Skills & Interests
 
 ### Technical Skills
-- **Programming**: Python, R, SQL
-- **Data Analysis**: Pandas, NumPy, Tidyverse
-- **Visualization**: Matplotlib, Seaborn, ggplot2
-- **Machine Learning**: Scikit-learn, basics of deep learning
-- **Tools**: Jupyter Notebooks, RStudio, Git/GitHub
+- **Programming**: Python
+- **Data Analysis**: Pandas, NumPy
+- **Visualization**: Matplotlib, Seaborn
+- **Machine Learning**: Scikit-learn
+- **Tools**: Jupyter Notebooks, Git/GitHub
 
 ### Areas of Interest
 - [Your specific interests, e.g., environmental data, healthcare analytics, finance, etc.]
