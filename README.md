@@ -18,16 +18,11 @@ This repository provides a simple template for creating a personal data science 
 
 2. **Customize your site**
    - Replace "Your Name" with your actual name in all files
-   - Update your GitHub and LinkedIn links in `_quarto.yml`
+   - Update your GitHub and LinkedIn links in `_quarto.yml` if you want them.
    - Edit the About Me page with your information
 
-3. **Add your projects**
-   - Use the template files in the `projects/` folder
-   - Follow the simple structure provided
-   - Include your code, visualizations, and findings
-
-4. **Deploy to GitHub Pages**
-   - Run `quarto render` to build your site
+3. **Deploy to GitHub Pages**
+   - Run `quarto render` to build your site and `quarto preview` to check it locally
    - Commit and push your changes
    - Enable GitHub Pages: Settings → Pages → Source: Deploy from a branch → Branch: main → Folder: /docs
 
@@ -40,35 +35,9 @@ This repository provides a simple template for creating a personal data science 
 ├── projects/            # Your project files
 │   ├── eda.qmd          # Data exploration template
 │   ├── data-acquisition.qmd  # Data collection template
-│   ├── final-project.qmd     # Final project template
-│   └── example-analysis.qmd  # Working example
+│   └── final-project.qmd     # Final project template
 └── styles.css           # Custom styling
 ```
-
-## 📝 Creating Projects
-
-Each project template includes:
-- Simple structure with clear sections
-- Code examples you can modify
-- Prompts to guide your writing
-- Space for your findings and insights
-
-### Template Features
-- **Student-friendly**: Clear sections and simple language
-- **Guided prompts**: Questions to help you think through each section
-- **Code examples**: Basic Python code you can adapt
-- **Flexible**: Easy to customize for different types of projects
-
-## 🎯 Portfolio Sections
-
-### Core Pages
-- **About Me** - Your background and interests
-- **Projects** - Showcase of your data science work
-
-### Project Types
-- **Data Exploration** - Learn to analyze and visualize data
-- **Data Collection** - Practice gathering and cleaning data
-- **Final Project** - Comprehensive project showing all your skills
 
 ## 🛠️ Customization
 
@@ -77,27 +46,9 @@ Each project template includes:
 - Modify `_quarto.yml` to change the theme
 - Add your own logo or images
 
-### Add New Projects
-1. Copy one of the template files in `projects/`
-2. Rename it and customize the content
-3. Add it to the navigation in `_quarto.yml`
-
-## � Tips for Students
-
-### Getting Started
-- Start with the simpler templates and gradually add complexity
-- Focus on telling the story of what you learned
-- Include both successes and challenges you faced
-
-### Writing Your Projects
-- Use the prompts in the templates to guide your writing
-- Include visualizations to make your work engaging
-- Explain your code and findings in plain language
-
-### Making It Professional
-- Keep your writing clear and concise
-- Include proper citations for data sources
-- Proofread before publishing
+### Add Extra Projects
+1. Copy files to `projects/`
+2. Add it to the navigation in `_quarto.yml`
 
 ## 🆘 Need Help?
 
@@ -107,13 +58,9 @@ Each project template includes:
 - **Code not running**: Ensure you have Python and required packages installed
 
 ### Resources
-- [Quarto Documentation](https://quarto.org/docs/)
+- [Quarto Documentation](https://https://quarto.org/docs/guide/)
 - [Markdown Guide](https://www.markdownguide.org/)
 - [GitHub Pages Help](https://docs.github.com/en/pages)
-
-## 📄 For Instructors
-
-See `INSTRUCTOR_SETUP.md` for guidance on customizing this template for your course.
 
 ---
 

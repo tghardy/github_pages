@@ -2,8 +2,6 @@
 title: "About Me"
 ---
 
-# About Me
-
 ## Background
 
 Write a brief introduction about yourself here. Include:

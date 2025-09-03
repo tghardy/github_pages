@@ -13,7 +13,6 @@ This portfolio shows my work learning data science. Each project includes:
 - My code with documentation
 - Visualizations I created
 - What I learned and discovered
-- Challenges I faced and how I solved them
 
 I built this site using [Quarto](https://quarto.org/) and host it on [GitHub Pages](https://pages.github.com/).
 
