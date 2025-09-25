@@ -13,7 +13,7 @@ execute:
 
 If you're interested in sports and data science, you've probably tried to visualize data from your favorite league at some point. People post things online all the time- plots that show the logo of each team and how they perform on offense or defense. These plots get a lot of attention because they show a lot of interesting information, but keep things simple.
 
-When I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn't work. Thankfully, it's not too hard to apply team logos to a graph- just follow this quick tutorial to learn how in R! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA.
+When I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn't work. **Thankfully, it's not too hard to apply team logos to a graph-** just follow this quick tutorial to learn how in R! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA.
 
 ## The mlbplotR Package
 
@@ -29,7 +29,7 @@ I've decided that I want to create a graph of ERA+ and OPS+ for each team in the
 
 ### Imports
 
-We'll be using the mlbplotR and tidyverse libraries in this code. If you don't have them, use the `install.packages()` function.
+We'll be using the **mlbplotR** and **tidyverse** libraries in this code. If you don't have them, use the `install.packages()` function.
 
 
 ```{r setup} 
@@ -38,7 +38,7 @@ library(tidyverse)
 ```
 
 
-As I mentioned before, I'll be using pitching and batting data from baseball-reference.com. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.
+As I mentioned before, I'll be using pitching and batting data from [Baseball Reference](baseball-reference.com). They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.
 
 
 ```{r} 
@@ -49,7 +49,7 @@ batting <- read_csv("pitching.csv", n_max = 31)
 
 ### Wrangling
 
-When I downloaded the data from baseball-reference.com, I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.
+When I downloaded the data from [Baseball Reference](baseball-reference.com), I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.
 
 The main things we need to do are:
 
@@ -57,7 +57,7 @@ The main things we need to do are:
 
 2. Make sure our team abbreviations are correct
 
-mlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo. If you don't know these, don't worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function `clean_team_abbrs()` to make sure they're correct.
+**mlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo.** If you don't know these, don't worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function `clean_team_abbrs()` to make sure they're correct.
 
 Since my data was pretty simple and on two tables, I only need to run a simple join to get my data all together.
 
@@ -100,7 +100,7 @@ ggsave("plot1.png")
 
 
 - ``ggplot(aes(x = `OPS+`, y = `ERA+`))`` - Sets my x and y axis elements
-- ` geom_mlb_logos(aes(team_abbr = abbr, width = 0.055))` - Adds team logos to the plot as if it were a scatterplot. team_abbr = abbr tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.
+- ` geom_mlb_logos(aes(team_abbr = abbr, width = 0.055))` - Adds team logos to the plot as if it were a scatterplot. `team_abbr = abbr` tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.
 - `theme_bw()` - Good looking, professional theme
 - `scale_x_continuous(limits = c(78, 122))` - Sets the x scale to a more appropriate level. I like to keep it square and centered on my data.
 - `geom_hline` and `geom_vline` are helpful to visualize where the league average is. For the stats I chose, the league average is 100, but you can use `mean()` to find it for other variables.
