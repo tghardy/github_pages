@@ -1,3 +1,14 @@
+---
+render: html
+execute:
+  echo: true
+  eval: true
+  output: false
+  warning: false
+  message: false
+---
+
+
 # From Dots to Logos: Improving your Baseball Data Viz
 
 If you're interested in sports and data science, you've probably tried to visualize data from your favorite league at some point. People post things online all the time- plots that show the logo of each team and how they perform on offense or defense. These plots get a lot of attention because they show a lot of interesting information, but keep things simple.
@@ -21,7 +32,7 @@ I've decided that I want to create a graph of ERA+ and OPS+ for each team in the
 We'll be using the mlbplotR and tidyverse libraries in this code. If you don't have them, use the `install.packages()` function.
 
 
-```{r} Import
+```{r setup} 
 library(mlbplotR)
 library(tidyverse)
 ```
@@ -30,7 +41,7 @@ library(tidyverse)
 As I mentioned before, I'll be using pitching and batting data from baseball-reference.com. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.
 
 
-```{r} Read in data
+```{r} 
 # Make sure you're bringing in the right number of rows!
 pitching <- read_csv("batting.csv", n_max = 31)
 batting <- read_csv("pitching.csv", n_max = 31)

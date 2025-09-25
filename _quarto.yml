@@ -14,7 +14,7 @@ website:
       - text: "About Me"
         href: about.md
       - text: "Baseball Viz Tutorial"
-        href: tutorial_blog/tutorial.md
+        href: tutorial_blog/tutorial.qmd
       #- text: "Projects"
         #menu:
           #- text: "All Projects"
@@ -28,9 +28,9 @@ website:
            # href: projects/final-project.qmd
     right:
       - icon: github
-        href: https://github.com/your-username
+        href: https://github.com/tghardy
       - icon: linkedin
-        href: https://linkedin.com/in/your-profile
+        href: https://linkedin.com/in/timothy-g-hardy
 
   sidebar:
     - title: "Projects"
