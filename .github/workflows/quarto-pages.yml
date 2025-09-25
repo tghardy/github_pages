@@ -1,0 +1,49 @@
+name: Quarto Publish
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "_quarto.yml"
+      - "**/*.qmd"
+      - ".github/workflows/quarto-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install Python deps for Quarto execution
+        run: |
+          python -m pip install --upgrade pip
+          pip install jupyter
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Render
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: html
+        env:
+          QUARTO_DONT_SKIP_EXEC: "true"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
