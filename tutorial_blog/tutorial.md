@@ -1,0 +1,106 @@
+# From Dots to Logos: Improving your Baseball Data Viz
+
+If you're interested in sports and data science, you've probably tried to visualize data from your favorite league at some point. People post things online all the time- plots that show the logo of each team and how they perform on offense or defense. These plots get a lot of attention because they show a lot of interesting information, but keep things simple.
+
+When I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn't work. Thankfully, it's not too hard to apply team logos to a graph- just follow this quick tutorial to learn how! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA.
+
+## The mlbplotR Package
+
+As part of the Sports Dataverse, we can use the [mlbplotR](https://github.com/camdenk/mlbplotR) package to easily put logos on an existing ggplot. This means it's as simple as adding just one more line to the code you've already written!
+
+To start out, you can use the function `load_mlb_teams()` to pull team names and basic info, or you can pull your data from a sports data website. I recommend just pulling data from [baseball-reference.com](https://baseball-reference.com) or a similar website, and this should come with team names already. If you want to follow along with my code, the data I used is on my GitHub.
+
+I've decided that I want to create a graph of ERA+ and OPS+ for each team in the 2025 season. These are metrics that show how a team's performance has been relative to the rest of the league, so it should be a fairly interesting graph.
+
+
+## Building the Graph
+
+
+### Imports
+
+We'll be using the mlbplotR and tidyverse libraries in this code. If you don't have them, use the `install.packages()` function.
+
+
+```{r} Import
+library(mlbplotR)
+library(tidyverse)
+```
+
+
+As I mentioned before, I'll be using pitching and batting data from baseball-reference.com. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.
+
+
+```{r} Read in data
+# Make sure you're bringing in the right number of rows!
+pitching <- read_csv("batting.csv", n_max = 31)
+batting <- read_csv("pitching.csv", n_max = 31)
+```
+
+### Wrangling
+
+When I downloaded the data from baseball-reference.com, I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.
+
+The main things we need to do are:
+
+1. Make sure all of our data is in the same table
+
+2. Make sure our team abbreviations are correct
+
+mlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo. If you don't know these, don't worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function `clean_team_abbrs()` to make sure they're correct.
+
+Since my data was pretty simple and on two tables, I only need to run a simple join to get my data all together.
+
+
+```{r}
+combined <- pitching |> 
+    full_join(batting, by = join_by("Tm"))
+
+combined$abbr <- c("AZ", "ATH", "ATL", "BAL", "BOS", "CHC", "CWS", "CIN", "CLE", "COL", "DET", "HOU", "KC", "LAA", "LAD", 
+                   "MIA", "MIL", "MIN", "NYM", "NYY", "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH")
+
+
+# If you aren't sure your abbreviations are correct, you can use the following function: 
+# clean_team_abbrs(combined$abbr, keep_non_matches = FALSE) 
+```
+
+
+### Visualization
+
+Now is the best part! First I'll show my code block, then I'll break it down line by line.
+
+```{r}
+combined |> 
+    ggplot(aes(x = `OPS+`, y = `ERA+`)) +
+    geom_mlb_logos(aes(team_abbr = abbr, width = 0.055)) +
+    theme_bw() +
+    scale_x_continuous(limits = c(78, 122)) +
+    scale_y_continuous(limits = c(78, 122)) +
+    geom_hline(aes(yintercept = 100), linetype = "dashed") +
+    geom_vline(aes(xintercept = 100), linetype = "dashed") +
+    labs(x = "OPS+",
+         y = "ERA+",
+         title = "Pitching and Batting Performance for MLB Teams (2025)",
+         caption = "Source: Baseball-Reference.com")
+
+ggsave("plot1.png")
+
+```
+
+
+
+- ``ggplot(aes(x = `OPS+`, y = `ERA+`))`` - Sets my x and y axis elements
+- ` geom_mlb_logos(aes(team_abbr = abbr, width = 0.055))` - Adds team logos to the plot as if it were a scatterplot. team_abbr = abbr tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.
+- `theme_bw()` - Good looking, professional theme
+- `scale_x_continuous(limits = c(78, 122))` - Sets the x scale to a more appropriate level. I like to keep it square and centered on my data.
+- `geom_hline` and `geom_vline` are helpful to visualize where the league average is. For the stats I chose, the league average is 100, but you can use `mean()` to find it for other variables.
+
+And here's the finished product: 
+
+![Pitching and Batting Performance for MLB Teams (2025)](plot1.png)
+
+
+## Wrapping it Up
+
+In this tutorial, you should have learned how to add logos to your baseball data visualization using mlbplotR. Even though it may seem daunting at first, it's just as simple as prepping your data well and adding `geom_mlb_logos()` to an already existing ggplot object. 
+
+Now that you know how to make an interesting viz like this, why not go make your own? Tons of data can be found on [Baseball Reference](https://baseball-reference.com) and [Fangraphs](https://fangraphs.com), or maybe you can learn how to pull your own data using the [baseballR package](https://billpetti.github.io/baseballr/). Happy plotting!

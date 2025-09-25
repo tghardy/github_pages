@@ -13,6 +13,8 @@ website:
         href: index.md
       - text: "About Me"
         href: about.md
+      - text: "Baseball Viz Tutorial"
+        href: tutorial_blog/tutorial.md
       - text: "Projects"
         menu:
           - text: "All Projects"
