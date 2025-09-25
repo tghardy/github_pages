@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="from-dots-to-logos-improving-your-baseball-data-viz" class="level1">
 <h1>From Dots to Logos: Improving your Baseball Data Viz</h1>
 <p>If you’re interested in sports and data science, you’ve probably tried to visualize data from your favorite league at some point. People post things online all the time- plots that show the logo of each team and how they perform on offense or defense. These plots get a lot of attention because they show a lot of interesting information, but keep things simple.</p>
-<p>When I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn’t work. Thankfully, it’s not too hard to apply team logos to a graph- just follow this quick tutorial to learn how! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA.</p>
+<p>When I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn’t work. <strong>Thankfully, it’s not too hard to apply team logos to a graph-</strong> just follow this quick tutorial to learn how in R! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA.</p>
 <section id="the-mlbplotr-package" class="level2">
 <h2 class="anchored" data-anchor-id="the-mlbplotr-package">The mlbplotR Package</h2>
 <p>As part of the Sports Dataverse, we can use the <a href="https://github.com/camdenk/mlbplotR">mlbplotR</a> package to easily put logos on an existing ggplot. This means it’s as simple as adding just one more line to the code you’ve already written!</p>
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="building-the-graph">Building the Graph</h2>
 <section id="imports" class="level3">
 <h3 class="anchored" data-anchor-id="imports">Imports</h3>
-<p>We’ll be using the mlbplotR and tidyverse libraries in this code. If you don’t have them, use the <code>install.packages()</code> function.</p>
+<p>We’ll be using the <strong>mlbplotR</strong> and <strong>tidyverse</strong> libraries in this code. If you don’t have them, use the <code>install.packages()</code> function.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>As I mentioned before, I’ll be using pitching and batting data from baseball-reference.com. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.</p>
+<p>As I mentioned before, I’ll be using pitching and batting data from <a href="baseball-reference.com">Baseball Reference</a>. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -245,13 +245,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="wrangling" class="level3">
 <h3 class="anchored" data-anchor-id="wrangling">Wrangling</h3>
-<p>When I downloaded the data from baseball-reference.com, I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.</p>
+<p>When I downloaded the data from <a href="baseball-reference.com">Baseball Reference</a>, I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.</p>
 <p>The main things we need to do are:</p>
 <ol type="1">
 <li><p>Make sure all of our data is in the same table</p></li>
 <li><p>Make sure our team abbreviations are correct</p></li>
 </ol>
-<p>mlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo. If you don’t know these, don’t worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function <code>clean_team_abbrs()</code> to make sure they’re correct.</p>
+<p><strong>mlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo.</strong> If you don’t know these, don’t worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function <code>clean_team_abbrs()</code> to make sure they’re correct.</p>
 <p>Since my data was pretty simple and on two tables, I only need to run a simple join to get my data all together.</p>
 <div class="cell">
 <details class="code-fold">
@@ -294,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li><code>ggplot(aes(x = `OPS+`, y = `ERA+`))</code> - Sets my x and y axis elements</li>
-<li><code>geom_mlb_logos(aes(team_abbr = abbr, width = 0.055))</code> - Adds team logos to the plot as if it were a scatterplot. team_abbr = abbr tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.</li>
+<li><code>geom_mlb_logos(aes(team_abbr = abbr, width = 0.055))</code> - Adds team logos to the plot as if it were a scatterplot. <code>team_abbr = abbr</code> tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.</li>
 <li><code>theme_bw()</code> - Good looking, professional theme</li>
 <li><code>scale_x_continuous(limits = c(78, 122))</code> - Sets the x scale to a more appropriate level. I like to keep it square and centered on my data.</li>
 <li><code>geom_hline</code> and <code>geom_vline</code> are helpful to visualize where the league average is. For the stats I chose, the league average is 100, but you can use <code>mean()</code> to find it for other variables.</li>
@@ -786,7 +786,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>If you're interested in sports and data science, you've probably tried to visualize data from your favorite league at some point. People post things online all the time- plots that show the logo of each team and how they perform on offense or defense. These plots get a lot of attention because they show a lot of interesting information, but keep things simple.</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>When I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn't work. Thankfully, it's not too hard to apply team logos to a graph- just follow this quick tutorial to learn how! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA.</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>When I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn't work. **Thankfully, it's not too hard to apply team logos to a graph-** just follow this quick tutorial to learn how in R! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA.</span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## The mlbplotR Package</span></span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
@@ -802,7 +802,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Imports</span></span>
 <span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>We'll be using the mlbplotR and tidyverse libraries in this code. If you don't have them, use the <span class="in">`install.packages()`</span> function.</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>We'll be using the **mlbplotR** and **tidyverse** libraries in this code. If you don't have them, use the <span class="in">`install.packages()`</span> function.</span>
 <span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup} </span></span>
@@ -811,7 +811,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>As I mentioned before, I'll be using pitching and batting data from baseball-reference.com. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>As I mentioned before, I'll be using pitching and batting data from <span class="co">[</span><span class="ot">Baseball Reference</span><span class="co">](baseball-reference.com)</span>. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.</span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -822,7 +822,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wrangling</span></span>
 <span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>When I downloaded the data from baseball-reference.com, I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>When I downloaded the data from <span class="co">[</span><span class="ot">Baseball Reference</span><span class="co">](baseball-reference.com)</span>, I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.</span>
 <span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>The main things we need to do are:</span>
 <span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
@@ -830,7 +830,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Make sure our team abbreviations are correct</span>
 <span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>mlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo. If you don't know these, don't worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function <span class="in">`clean_team_abbrs()`</span> to make sure they're correct.</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>**mlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo.** If you don't know these, don't worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function <span class="in">`clean_team_abbrs()`</span> to make sure they're correct.</span>
 <span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>Since my data was pretty simple and on two tables, I only need to run a simple join to get my data all together.</span>
 <span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a></span>
@@ -873,7 +873,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>`<span class="in">`ggplot(aes(x = `</span>OPS+<span class="in">`, y = `</span>ERA+`))`` - Sets my x and y axis elements</span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">` geom_mlb_logos(aes(team_abbr = abbr, width = 0.055))`</span> - Adds team logos to the plot as if it were a scatterplot. team_abbr = abbr tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">` geom_mlb_logos(aes(team_abbr = abbr, width = 0.055))`</span> - Adds team logos to the plot as if it were a scatterplot. <span class="in">`team_abbr = abbr`</span> tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.</span>
 <span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_bw()`</span> - Good looking, professional theme</span>
 <span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_x_continuous(limits = c(78, 122))`</span> - Sets the x scale to a more appropriate level. I like to keep it square and centered on my data.</span>
 <span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_hline`</span> and <span class="in">`geom_vline`</span> are helpful to visualize where the league average is. For the stats I chose, the league average is 100, but you can use <span class="in">`mean()`</span> to find it for other variables.</span>
