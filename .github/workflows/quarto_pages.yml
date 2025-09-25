@@ -1,0 +1,38 @@
+name: Quarto Publish
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "_quarto.yml"
+      - "**/*.qmd"
+      - "**/*.md"
+      - "styles.css"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Install Quarto
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # 3. Render the site
+      - name: Render Quarto site
+        run: quarto render
+
+      # 4. Publish to GitHub Pages
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs

@@ -1,11 +1,11 @@
 ---
-render: html
+format: html
 execute:
-  echo: true
-  eval: true
-  output: false
-  warning: false
-  message: false
+  echo: true      # show code
+  eval: true      # run code
+  output: false   # hide all output
+  warning: false  # suppress warnings
+  message: false  # suppress messages
 ---
 
 
