@@ -43,7 +43,8 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript -e 'install.packages(c("tidyverse", "mlbplotR"))'
+          Rscript -e 'install.packages(c("tidyverse", "remotes"))'
+          Rscript -e 'remotes::install_github("camdenk/mlbplotR")'
 
       # Setup Quarto
       - uses: quarto-dev/quarto-actions/setup@v2
