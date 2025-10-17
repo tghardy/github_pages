@@ -1,9 +1,8 @@
 ---
 format: html
+title: "From Dots to Logos: Improving your Baseball Data Viz ⚾"
 ---
 
-
-# From Dots to Logos: Improving your Baseball Data Viz
 
 If you're interested in sports and data science, you've probably tried to visualize data from your favorite league at some point. People post things online all the time- plots that show the logo of each team and how they perform on offense or defense. These plots get a lot of attention because they show a lot of interesting information, but keep things simple.
 

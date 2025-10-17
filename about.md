@@ -17,6 +17,8 @@ Previously, I worked for BYU Sports Camps as their Head Counselor. During my tim
 
 I am currently researching RAG methods and techniques, and developing open-source software to improve the use of LLMs in education and the workplace. 
 
+Outside of school, I love rock climbing, running, and sports. I also play the piano and guitar.
+
 ## Education
 
 - **BS in Statistics** - Brigham Young University, 2026
