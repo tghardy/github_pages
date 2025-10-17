@@ -2,6 +2,8 @@
 title: "About Me"
 ---
 
+![Timothy Hardy](pfp.jpeg){width=500px style="border-radius:50%; vertical-align:middle; horizontal-align: middle"}
+
 ## Background
 
 

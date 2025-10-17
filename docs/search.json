@@ -60,14 +60,14 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "I am a senior at BYU studying Statistics with an emphasis in Data Science! I’m interested in predictive analytics, especially with applications in sports and biology. When I’m done with this year of school, I hope to transition to being an integrated BS/MS student in Statistics at BYU. I love exploring what data means and the stories it tells.\nPreviously, I worked for BYU Sports Camps as their Head Counselor. During my time, I did several data projects:\n\nI designed an algorithm to automate selection of camp registrants that would be admitted this year.\nI used Power BI to analyze market research, making 14 different dashboards for the camp administrators to more easily access feedback from camp participants.\nI created reports in Qualtrics to help head coaches to know how to improve their camps.\n\nI am currently researching RAG methods and techniques, and developing open-source software to improve the use of LLMs in education and the workplace."
+    "text": "Timothy Hardy"
   },
   {
     "objectID": "about.html#background",
     "href": "about.html#background",
     "title": "About Me",
-    "section": "",
-    "text": "I am a senior at BYU studying Statistics with an emphasis in Data Science! I’m interested in predictive analytics, especially with applications in sports and biology. When I’m done with this year of school, I hope to transition to being an integrated BS/MS student in Statistics at BYU. I love exploring what data means and the stories it tells.\nPreviously, I worked for BYU Sports Camps as their Head Counselor. During my time, I did several data projects:\n\nI designed an algorithm to automate selection of camp registrants that would be admitted this year.\nI used Power BI to analyze market research, making 14 different dashboards for the camp administrators to more easily access feedback from camp participants.\nI created reports in Qualtrics to help head coaches to know how to improve their camps.\n\nI am currently researching RAG methods and techniques, and developing open-source software to improve the use of LLMs in education and the workplace."
+    "section": "Background",
+    "text": "Background\nI am a senior at BYU studying Statistics with an emphasis in Data Science! I’m interested in predictive analytics, especially with applications in sports and biology. When I’m done with this year of school, I hope to transition to being an integrated BS/MS student in Statistics at BYU. I love exploring what data means and the stories it tells.\nPreviously, I worked for BYU Sports Camps as their Head Counselor. During my time, I did several data projects:\n\nI designed an algorithm to automate selection of camp registrants that would be admitted this year.\nI used Power BI to analyze market research, making 14 different dashboards for the camp administrators to more easily access feedback from camp participants.\nI created reports in Qualtrics to help head coaches to know how to improve their camps.\n\nI am currently researching RAG methods and techniques, and developing open-source software to improve the use of LLMs in education and the workplace."
   },
   {
     "objectID": "about.html#education",
