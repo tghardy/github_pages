@@ -13,8 +13,7 @@ Previously, I worked for BYU Sports Camps as their Head Counselor. During my tim
 2. I used Power BI to analyze market research, making 14 different dashboards for the camp administrators to more easily access feedback from camp participants.
 3. I created reports in Qualtrics to help head coaches to know how to improve their camps.
 
-My biggest project that I'm focusing on right now is my weekly TidyTuesday analyses, which can be found on my GitHub profile. There, I'm experimenting with different visualizations and models so I can keep my skills sharp while I'm getting ready to enter the workforce.
-
+I am currently researching RAG methods and techniques, and developing open-source software to improve the use of LLMs in education and the workplace. 
 
 ## Education
 
@@ -31,11 +30,11 @@ My biggest project that I'm focusing on right now is my weekly TidyTuesday analy
 - **Tools**: Jupyter Notebooks, Git/GitHub, Tableau, Power BI
 
 ### Areas of Interest
-- Sports Analytics, Machine Learning, Biology
-- Currently learning more about applications of Neural Networks
+- Sports Analytics
+- Machine Learning
+- LLMs and RAG
 
 ## Goals
-
 
 My primary short-term goal right now is to learn how to effectivly use ML models in my analysis. As time goes on, I am interested in building larger frameworks and dashboards that integrate ML to help in making decisions. I would love to make a career in solving classification problems using ML.
 
