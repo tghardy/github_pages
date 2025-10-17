@@ -1,11 +1,5 @@
 ---
 format: html
-execute:
-  echo: true      # show code
-  eval: true      # run code
-  output: false   # hide all output
-  warning: false  # suppress warnings
-  message: false  # suppress messages
 ---
 
 
@@ -32,7 +26,7 @@ I've decided that I want to create a graph of ERA+ and OPS+ for each team in the
 We'll be using the **mlbplotR** and **tidyverse** libraries in this code. If you don't have them, use the `install.packages()` function.
 
 
-```{r setup} 
+```r 
 library(mlbplotR)
 library(tidyverse)
 ```
@@ -41,7 +35,7 @@ library(tidyverse)
 As I mentioned before, I'll be using pitching and batting data from [Baseball Reference](baseball-reference.com). They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.
 
 
-```{r} 
+```r 
 # Make sure you're bringing in the right number of rows!
 pitching <- read_csv("batting.csv", n_max = 31)
 batting <- read_csv("pitching.csv", n_max = 31)
@@ -62,7 +56,7 @@ The main things we need to do are:
 Since my data was pretty simple and on two tables, I only need to run a simple join to get my data all together.
 
 
-```{r}
+```r
 combined <- pitching |> 
     full_join(batting, by = join_by("Tm"))
 
@@ -79,7 +73,7 @@ combined$abbr <- c("AZ", "ATH", "ATL", "BAL", "BOS", "CHC", "CWS", "CIN", "CLE",
 
 Now is the best part! First I'll show my code block, then I'll break it down line by line.
 
-```{r}
+```r
 combined |> 
     ggplot(aes(x = `OPS+`, y = `ERA+`)) +
     geom_mlb_logos(aes(team_abbr = abbr, width = 0.055)) +
