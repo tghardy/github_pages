@@ -8,7 +8,7 @@ author: Timothy Hardy
 
 The Baseball Hall of Fame (HoF) is one of the most prestigious institutions in all of American sports. As one of the most historied and iconic sports in the world, being inducted into the HoF is the greatest accomplishment for any baseball player. So, what does it take to get into the Hall of Fame? How long are their careers, and what positions do they play? Which teams have produced the most HoF level talent? Using data, we can find these answers!
 
-### A Note on the Data
+### A Note on the data I'm using
 
 The data I'm using for this analysis was gathered from [this article on Wikipedia](https://en.wikipedia.org/wiki/List_of_members_of_the_National_Baseball_Hall_of_Fame) which has a list of everyone in the Baseball HoF. If you want to scrape data from Wikipedia yourself, make sure you check out their [user-agent policy](https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy)- any time you scrape from their website, make sure to set your user-agent in their requested format so they can contact you if necessary.
 
