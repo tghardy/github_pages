@@ -54,7 +54,7 @@ It might be reasonable to assume that longer careers would correlate with a high
 
 ![Career Span and Votes](images/career_votes.png)
 
-Looking at the plot, it's hard to tell if there's any significant correlation. There is a weak numeric correlation, but it looks like nobody with a career span of just 10 years got over 90% of the possible votes. Those who have effectively devoted their lives to baseball by working more than 40 years were voted in unanimously. The few umpires in the HoF received very high voting percentages as well. The Designated Hitters in the HoF also did not capture a large proportion of votes.
+Looking at the plot, it's hard to tell if there's any significant correlation. There is a weak numeric correlation, but it looks like nobody with a career span of just 10 years got over 90% of the possible votes. Those who have effectively devoted their lives to baseball by working more than 40 years were voted in unanimously. The few umpires in the HoF received very high voting percentages as well. The Designated Hitters in the HoF did not capture a large proportion of votes.
 
 ### Which team produces the most HoF talent?
 
