@@ -21,6 +21,34 @@
     "text": "Learn how I explore datasets to find interesting patterns and answer questions.\n\n\n\nSee how I gather data from different sources and prepare it for analysis.\n\n\n\nLearn how to plot team-based data in R.\n\n\n\nSee how I tackle a data science project beginning to end.\n\n\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning.\nI built this site using Quarto and host it on GitHub Pages."
   },
   {
+    "objectID": "tutorial_blog/tutorial.html",
+    "href": "tutorial_blog/tutorial.html",
+    "title": "From Dots to Logos: Improving your Baseball Data Viz ⚾",
+    "section": "",
+    "text": "If you’re interested in sports and data science, you’ve probably tried to visualize data from your favorite league at some point. People post things online all the time- plots that show the logo of each team and how they perform on offense or defense. These plots get a lot of attention because they show a lot of interesting information, but keep things simple.\nWhen I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn’t work. Thankfully, it’s not too hard to apply team logos to a graph- just follow this quick tutorial to learn how in R! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA."
+  },
+  {
+    "objectID": "tutorial_blog/tutorial.html#the-mlbplotr-package",
+    "href": "tutorial_blog/tutorial.html#the-mlbplotr-package",
+    "title": "From Dots to Logos: Improving your Baseball Data Viz ⚾",
+    "section": "The mlbplotR Package",
+    "text": "The mlbplotR Package\nAs part of the Sports Dataverse, we can use the mlbplotR package to easily put logos on an existing ggplot. This means it’s as simple as adding just one more line to the code you’ve already written!\nTo start out, you can use the function load_mlb_teams() to pull team names and basic info, or you can pull your data from a sports data website. I recommend just pulling data from baseball-reference.com or a similar website, and this should come with team names already. If you want to follow along with my code, the data I used is on my GitHub.\nI’ve decided that I want to create a graph of ERA+ and OPS+ for each team in the 2025 season. These are metrics that show how a team’s performance has been relative to the rest of the league, so it should be a fairly interesting graph."
+  },
+  {
+    "objectID": "tutorial_blog/tutorial.html#building-the-graph",
+    "href": "tutorial_blog/tutorial.html#building-the-graph",
+    "title": "From Dots to Logos: Improving your Baseball Data Viz ⚾",
+    "section": "Building the Graph",
+    "text": "Building the Graph\n\nImports\nWe’ll be using the mlbplotR and tidyverse libraries in this code. If you don’t have them, use the install.packages() function.\nlibrary(mlbplotR)\nlibrary(tidyverse)\nAs I mentioned before, I’ll be using pitching and batting data from Baseball Reference. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.\n# Make sure you're bringing in the right number of rows!\npitching &lt;- read_csv(\"batting.csv\", n_max = 31)\nbatting &lt;- read_csv(\"pitching.csv\", n_max = 31)\n\n\nWrangling\nWhen I downloaded the data from Baseball Reference, I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.\nThe main things we need to do are:\n\nMake sure all of our data is in the same table\nMake sure our team abbreviations are correct\n\nmlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo. If you don’t know these, don’t worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function clean_team_abbrs() to make sure they’re correct.\nSince my data was pretty simple and on two tables, I only need to run a simple join to get my data all together.\ncombined &lt;- pitching |&gt; \n    full_join(batting, by = join_by(\"Tm\"))\n\ncombined$abbr &lt;- c(\"AZ\", \"ATH\", \"ATL\", \"BAL\", \"BOS\", \"CHC\", \"CWS\", \"CIN\", \"CLE\", \"COL\", \"DET\", \"HOU\", \"KC\", \"LAA\", \"LAD\", \n                   \"MIA\", \"MIL\", \"MIN\", \"NYM\", \"NYY\", \"PHI\", \"PIT\", \"SD\", \"SEA\", \"SF\", \"STL\", \"TB\", \"TEX\", \"TOR\", \"WSH\")\n\n\n# If you aren't sure your abbreviations are correct, you can use the following function: \n# clean_team_abbrs(combined$abbr, keep_non_matches = FALSE) \n\n\nVisualization\nNow is the best part! First I’ll show my code block, then I’ll break it down line by line.\ncombined |&gt; \n    ggplot(aes(x = `OPS+`, y = `ERA+`)) +\n    geom_mlb_logos(aes(team_abbr = abbr, width = 0.055)) +\n    theme_bw() +\n    scale_x_continuous(limits = c(78, 122)) +\n    scale_y_continuous(limits = c(78, 122)) +\n    geom_hline(aes(yintercept = 100), linetype = \"dashed\") +\n    geom_vline(aes(xintercept = 100), linetype = \"dashed\") +\n    labs(x = \"OPS+\",\n         y = \"ERA+\",\n         title = \"Pitching and Batting Performance for MLB Teams (2025)\",\n         caption = \"Source: Baseball-Reference.com\")\n\nggsave(\"plot1.png\")\n\nggplot(aes(x = `OPS+`, y = `ERA+`)) - Sets my x and y axis elements\ngeom_mlb_logos(aes(team_abbr = abbr, width = 0.055)) - Adds team logos to the plot as if it were a scatterplot. team_abbr = abbr tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.\ntheme_bw() - Good looking, professional theme\nscale_x_continuous(limits = c(78, 122)) - Sets the x scale to a more appropriate level. I like to keep it square and centered on my data.\ngeom_hline and geom_vline are helpful to visualize where the league average is. For the stats I chose, the league average is 100, but you can use mean() to find it for other variables.\n\nAnd here’s the finished product:\n\n\n\nPitching and Batting Performance for MLB Teams (2025)"
+  },
+  {
+    "objectID": "tutorial_blog/tutorial.html#wrapping-it-up",
+    "href": "tutorial_blog/tutorial.html#wrapping-it-up",
+    "title": "From Dots to Logos: Improving your Baseball Data Viz ⚾",
+    "section": "Wrapping it Up",
+    "text": "Wrapping it Up\nIn this tutorial, you should have learned how to add logos to your baseball data visualization using mlbplotR. Even though it may seem daunting at first, it’s just as simple as prepping your data well and adding geom_mlb_logos() to an already existing ggplot object.\nNow that you know how to make an interesting viz like this, why not go make your own? Tons of data can be found on Baseball Reference and Fangraphs, or maybe you can learn how to pull your own data using the baseballR package. Happy plotting!"
+  },
+  {
     "objectID": "projects/md_backups_20251017130428/index.html",
     "href": "projects/md_backups_20251017130428/index.html",
     "title": "Projects Overview",
@@ -35,18 +63,60 @@
     "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills."
   },
   {
-    "objectID": "projects/md_backups_20251017130428/eda.html",
-    "href": "projects/md_backups_20251017130428/eda.html",
+    "objectID": "projects/md_backups_20251017130428/final-project.html",
+    "href": "projects/md_backups_20251017130428/final-project.html",
     "title": "",
     "section": "",
-    "text": "Code\n\n\n\n\n\nwip"
+    "text": "Code\n\n\n\n\n\nWIP"
+  },
+  {
+    "objectID": "projects/final-project.html",
+    "href": "projects/final-project.html",
+    "title": "Final Project",
+    "section": "",
+    "text": "This is coming down the pipeline. Check again later. WIP"
   },
   {
     "objectID": "projects/data-acquisition.html",
     "href": "projects/data-acquisition.html",
     "title": "Data Acquisition Project",
     "section": "",
-    "text": "This is coming down the pipeline. Check again later."
+    "text": "The Baseball Hall of Fame (HoF) is one of the most prestigious institutions in all of American sports. As one of the most historied and iconic sports in the world, being inducted into the HoF is the greatest accomplishment for any baseball player. So, what does it take to get into the Hall of Fame? How long are their careers, and what positions do they play? Which teams have produced the most HoF level talent? Using data, we can find these answers!\n\n\nThe data I’m using for this analysis was gathered from this article on Wikipedia which has a list of everyone in the Baseball HoF. If you want to scrape data from Wikipedia yourself, make sure you check out their user-agent policy- any time you scrape from their website, make sure to set your user-agent in their requested format so they can contact you if necessary.\nIf there’s a table you’re interested in scraping from Wikipedia, it’s actually pretty simple:\n\nCopy the URL you’re interested in scraping into a Python script\nUse requests.get() to get the html from the website\nCreate a BeautifulSoup object with the html\nUse BeautifulSoup.find_all(\"table\") to obtain a list of all the tables on the page\nIdentify which table in the list holds the data you’re looking for\n\nOnce this is done, you can convert it to a dataframe (pd.read_html()) for further analysis.\n\n\n\n\n\n\nEvery position in baseball plays differently. Certain positions, such as Pitchers and Shortstops, tend to have a greater impact on the game because they are involved in the play more often than other positions (e.g. RF). In addition to this, non-playing positions (e.g. Managers, GMs, etc.) are admitted into the HoF with relatively high frequency. Let’s look at the distribution:\n\n\n\nFig. 1: Number of HoF Players by Position\n\n\nAs can be seen by the plot, Pitchers are by far the most common position inducted to the HoF. One might think this is a huge discrepancy, but keep in mind that teams often have a rotation of 5 starting pitchers and 5 more relief pitchers that each get significant playing time, whereas for other positions teams will generally only consistently put in one player.\nExecutives (i.e. GMs) are the next most common position in the HoF, followed by Right Field, First Base, and Shortstop. Out of the main roles people could traditionally play in a team, Third Base has the least players in the HoF. Designated Hitter is a relatively new position, so it makes sense it hasn’t produced too many Hall of Famers.\nIt might help to view this by position groups, however- infielders and outfielders have very different playstyles, after all.\n\n\n\nFig. 2: Number of HoF Players by Position Group\n\n\nInfielders are much better represented here, and we can see that more infielders are inducted into the HoF than pitchers. All playable position “groups” have more individuals in the HoF than managerial positions or umpire positions (excluding DH). Infielders tend to have a large impact on a baseball game because of their importance to the defense of a team.\n\n\n\nGenerally, for someone to make an impact on the game of baseball, they need to have a long and sustained career. Let’s look at the span of each HoF inductee’s careers:\n\n\n\nHoF Career Spans\n\n\nMost HoF players have a career that spans about 20 years. Any players inducted to the HoF since 2000 have had a career of 10 years or longer. The shortest career span of any HoF inductee is Morgan Bulkeley, an executive for just two years in the late 1800s. The longest career span of any HoF inductee is John Schuerholz, who has worked an astonishing 59 years in the league and is still active with the Atlanta Braves today.\n\n\n\nIt might be reasonable to assume that longer careers would correlate with a higher percentage of induction votes. Let’s see:\n\n\n\nCareer Span and Votes\n\n\nLooking at the plot, it’s hard to tell if there’s any significant correlation. There is a weak numeric correlation, but it looks like nobody with a career span of just 10 years got over 90% of the possible votes. Those who have effectively devoted their lives to baseball by working more than 40 years were voted in unanimously. The few umpires in the HoF received very high voting percentages as well. The Designated Hitters in the HoF also did not capture a large proportion of votes.\n\n\n\nTo see which teams have the most storied success and have contributed most to the league, we can take a look at which teams have the most players inducted into the HoF. Here are all of the teams that have 10 or more players in the HoF:\n\n\n\nTeam\nPlayers\n\n\n\n\nNew York Yankees\n25\n\n\nNew York Giants\n20\n\n\nSt. Louis Cardinals\n17\n\n\nChicago Cubs\n14\n\n\nPittsburgh Pirates\n14\n\n\nCleveland Indians\n13\n\n\nChicago White Sox\n13\n\n\nBoston Red Sox\n12\n\n\nPhiladelphia Phillies\n11\n\n\nBrooklyn Dodgers\n11\n\n\nDetroit Tigers\n10\n\n\n\nThe Yankees and the Giants have contributed the most HoF talent by far compared to any other team. My team, the Chicago Cubs, comes in 5th with 14 players produced. These teams carry some of baseball’s greatest storylines and history.\n\n\n\n\nIf you enjoyed learning about these Hall of Fame players, you’ll definitely enjoy taking a trip to Baseball Reference. You can look more into the top HoF players and look at their stats to see just how good they are. Or maybe you can look at the 2-year long career of Morgan Bulkeley and see what he did that merited such a high honor early in the life of American baseball. You can also look at the official MLB website to read up on current top players and significant stories of the past.\nLastly, if you want to see more of the specifics of how this works, my code to perform this analysis can be found on my GitHub. I hope to see you there!"
+  },
+  {
+    "objectID": "projects/data-acquisition.html#intro",
+    "href": "projects/data-acquisition.html#intro",
+    "title": "Data Acquisition Project",
+    "section": "",
+    "text": "The Baseball Hall of Fame (HoF) is one of the most prestigious institutions in all of American sports. As one of the most historied and iconic sports in the world, being inducted into the HoF is the greatest accomplishment for any baseball player. So, what does it take to get into the Hall of Fame? How long are their careers, and what positions do they play? Which teams have produced the most HoF level talent? Using data, we can find these answers!\n\n\nThe data I’m using for this analysis was gathered from this article on Wikipedia which has a list of everyone in the Baseball HoF. If you want to scrape data from Wikipedia yourself, make sure you check out their user-agent policy- any time you scrape from their website, make sure to set your user-agent in their requested format so they can contact you if necessary.\nIf there’s a table you’re interested in scraping from Wikipedia, it’s actually pretty simple:\n\nCopy the URL you’re interested in scraping into a Python script\nUse requests.get() to get the html from the website\nCreate a BeautifulSoup object with the html\nUse BeautifulSoup.find_all(\"table\") to obtain a list of all the tables on the page\nIdentify which table in the list holds the data you’re looking for\n\nOnce this is done, you can convert it to a dataframe (pd.read_html()) for further analysis."
+  },
+  {
+    "objectID": "projects/data-acquisition.html#eda-highlights",
+    "href": "projects/data-acquisition.html#eda-highlights",
+    "title": "Data Acquisition Project",
+    "section": "",
+    "text": "Every position in baseball plays differently. Certain positions, such as Pitchers and Shortstops, tend to have a greater impact on the game because they are involved in the play more often than other positions (e.g. RF). In addition to this, non-playing positions (e.g. Managers, GMs, etc.) are admitted into the HoF with relatively high frequency. Let’s look at the distribution:\n\n\n\nFig. 1: Number of HoF Players by Position\n\n\nAs can be seen by the plot, Pitchers are by far the most common position inducted to the HoF. One might think this is a huge discrepancy, but keep in mind that teams often have a rotation of 5 starting pitchers and 5 more relief pitchers that each get significant playing time, whereas for other positions teams will generally only consistently put in one player.\nExecutives (i.e. GMs) are the next most common position in the HoF, followed by Right Field, First Base, and Shortstop. Out of the main roles people could traditionally play in a team, Third Base has the least players in the HoF. Designated Hitter is a relatively new position, so it makes sense it hasn’t produced too many Hall of Famers.\nIt might help to view this by position groups, however- infielders and outfielders have very different playstyles, after all.\n\n\n\nFig. 2: Number of HoF Players by Position Group\n\n\nInfielders are much better represented here, and we can see that more infielders are inducted into the HoF than pitchers. All playable position “groups” have more individuals in the HoF than managerial positions or umpire positions (excluding DH). Infielders tend to have a large impact on a baseball game because of their importance to the defense of a team.\n\n\n\nGenerally, for someone to make an impact on the game of baseball, they need to have a long and sustained career. Let’s look at the span of each HoF inductee’s careers:\n\n\n\nHoF Career Spans\n\n\nMost HoF players have a career that spans about 20 years. Any players inducted to the HoF since 2000 have had a career of 10 years or longer. The shortest career span of any HoF inductee is Morgan Bulkeley, an executive for just two years in the late 1800s. The longest career span of any HoF inductee is John Schuerholz, who has worked an astonishing 59 years in the league and is still active with the Atlanta Braves today.\n\n\n\nIt might be reasonable to assume that longer careers would correlate with a higher percentage of induction votes. Let’s see:\n\n\n\nCareer Span and Votes\n\n\nLooking at the plot, it’s hard to tell if there’s any significant correlation. There is a weak numeric correlation, but it looks like nobody with a career span of just 10 years got over 90% of the possible votes. Those who have effectively devoted their lives to baseball by working more than 40 years were voted in unanimously. The few umpires in the HoF received very high voting percentages as well. The Designated Hitters in the HoF also did not capture a large proportion of votes.\n\n\n\nTo see which teams have the most storied success and have contributed most to the league, we can take a look at which teams have the most players inducted into the HoF. Here are all of the teams that have 10 or more players in the HoF:\n\n\n\nTeam\nPlayers\n\n\n\n\nNew York Yankees\n25\n\n\nNew York Giants\n20\n\n\nSt. Louis Cardinals\n17\n\n\nChicago Cubs\n14\n\n\nPittsburgh Pirates\n14\n\n\nCleveland Indians\n13\n\n\nChicago White Sox\n13\n\n\nBoston Red Sox\n12\n\n\nPhiladelphia Phillies\n11\n\n\nBrooklyn Dodgers\n11\n\n\nDetroit Tigers\n10\n\n\n\nThe Yankees and the Giants have contributed the most HoF talent by far compared to any other team. My team, the Chicago Cubs, comes in 5th with 14 players produced. These teams carry some of baseball’s greatest storylines and history."
+  },
+  {
+    "objectID": "projects/data-acquisition.html#where-can-i-learn-more",
+    "href": "projects/data-acquisition.html#where-can-i-learn-more",
+    "title": "Data Acquisition Project",
+    "section": "",
+    "text": "If you enjoyed learning about these Hall of Fame players, you’ll definitely enjoy taking a trip to Baseball Reference. You can look more into the top HoF players and look at their stats to see just how good they are. Or maybe you can look at the 2-year long career of Morgan Bulkeley and see what he did that merited such a high honor early in the life of American baseball. You can also look at the official MLB website to read up on current top players and significant stories of the past.\nLastly, if you want to see more of the specifics of how this works, my code to perform this analysis can be found on my GitHub. I hope to see you there!"
+  },
+  {
+    "objectID": "projects/md_backups_20251017130428/data-acquisition.html",
+    "href": "projects/md_backups_20251017130428/data-acquisition.html",
+    "title": "",
+    "section": "",
+    "text": "Code\n\n\n\n\n\nWIP"
+  },
+  {
+    "objectID": "projects/md_backups_20251017130428/eda.html",
+    "href": "projects/md_backups_20251017130428/eda.html",
+    "title": "",
+    "section": "",
+    "text": "Code\n\n\n\n\n\nwip"
   },
   {
     "objectID": "projects/eda.html",
@@ -96,54 +166,5 @@
     "title": "About Me",
     "section": "Contact",
     "text": "Contact\n\nEmail: timothyhardyg@gmail.com\nGitHub: github.com/tghardy\nLinkedIn: https://www.linkedin.com/in/timothy-hardy-39512732a/\n\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
-  },
-  {
-    "objectID": "projects/final-project.html",
-    "href": "projects/final-project.html",
-    "title": "Final Project",
-    "section": "",
-    "text": "This is coming down the pipeline. Check again later. WIP"
-  },
-  {
-    "objectID": "projects/md_backups_20251017130428/final-project.html",
-    "href": "projects/md_backups_20251017130428/final-project.html",
-    "title": "",
-    "section": "",
-    "text": "Code\n\n\n\n\n\nWIP"
-  },
-  {
-    "objectID": "projects/md_backups_20251017130428/data-acquisition.html",
-    "href": "projects/md_backups_20251017130428/data-acquisition.html",
-    "title": "",
-    "section": "",
-    "text": "Code\n\n\n\n\n\nWIP"
-  },
-  {
-    "objectID": "tutorial_blog/tutorial.html",
-    "href": "tutorial_blog/tutorial.html",
-    "title": "From Dots to Logos: Improving your Baseball Data Viz ⚾",
-    "section": "",
-    "text": "If you’re interested in sports and data science, you’ve probably tried to visualize data from your favorite league at some point. People post things online all the time- plots that show the logo of each team and how they perform on offense or defense. These plots get a lot of attention because they show a lot of interesting information, but keep things simple.\nWhen I first tried to visualize win rate for my favorite MLB team, I realized very quickly that a simple scatterplot just wouldn’t work. Thankfully, it’s not too hard to apply team logos to a graph- just follow this quick tutorial to learn how in R! The steps and package in this tutorial are focused on MLB, but similar packages exist for other leagues such as CFB, NFL, and NBA."
-  },
-  {
-    "objectID": "tutorial_blog/tutorial.html#the-mlbplotr-package",
-    "href": "tutorial_blog/tutorial.html#the-mlbplotr-package",
-    "title": "From Dots to Logos: Improving your Baseball Data Viz ⚾",
-    "section": "The mlbplotR Package",
-    "text": "The mlbplotR Package\nAs part of the Sports Dataverse, we can use the mlbplotR package to easily put logos on an existing ggplot. This means it’s as simple as adding just one more line to the code you’ve already written!\nTo start out, you can use the function load_mlb_teams() to pull team names and basic info, or you can pull your data from a sports data website. I recommend just pulling data from baseball-reference.com or a similar website, and this should come with team names already. If you want to follow along with my code, the data I used is on my GitHub.\nI’ve decided that I want to create a graph of ERA+ and OPS+ for each team in the 2025 season. These are metrics that show how a team’s performance has been relative to the rest of the league, so it should be a fairly interesting graph."
-  },
-  {
-    "objectID": "tutorial_blog/tutorial.html#building-the-graph",
-    "href": "tutorial_blog/tutorial.html#building-the-graph",
-    "title": "From Dots to Logos: Improving your Baseball Data Viz ⚾",
-    "section": "Building the Graph",
-    "text": "Building the Graph\n\nImports\nWe’ll be using the mlbplotR and tidyverse libraries in this code. If you don’t have them, use the install.packages() function.\nlibrary(mlbplotR)\nlibrary(tidyverse)\nAs I mentioned before, I’ll be using pitching and batting data from Baseball Reference. They have a nice feature that lets you design and filter your own tables, so I would definitely recommend using them. I downloaded CSV files and put them in my working directory.\n# Make sure you're bringing in the right number of rows!\npitching &lt;- read_csv(\"batting.csv\", n_max = 31)\nbatting &lt;- read_csv(\"pitching.csv\", n_max = 31)\n\n\nWrangling\nWhen I downloaded the data from Baseball Reference, I made sure to only keep the columns I was interested in (ERA+ and OPS+). This means that the wrangling I need to do in R is minimal.\nThe main things we need to do are:\n\nMake sure all of our data is in the same table\nMake sure our team abbreviations are correct\n\nmlbplotR requires that your dataset includes the Baseball Savant team abbreviations to properly show each logo. If you don’t know these, don’t worry- you can just copy the vector I have below. Or, if your data already has team abbreviations, you can use the function clean_team_abbrs() to make sure they’re correct.\nSince my data was pretty simple and on two tables, I only need to run a simple join to get my data all together.\ncombined &lt;- pitching |&gt; \n    full_join(batting, by = join_by(\"Tm\"))\n\ncombined$abbr &lt;- c(\"AZ\", \"ATH\", \"ATL\", \"BAL\", \"BOS\", \"CHC\", \"CWS\", \"CIN\", \"CLE\", \"COL\", \"DET\", \"HOU\", \"KC\", \"LAA\", \"LAD\", \n                   \"MIA\", \"MIL\", \"MIN\", \"NYM\", \"NYY\", \"PHI\", \"PIT\", \"SD\", \"SEA\", \"SF\", \"STL\", \"TB\", \"TEX\", \"TOR\", \"WSH\")\n\n\n# If you aren't sure your abbreviations are correct, you can use the following function: \n# clean_team_abbrs(combined$abbr, keep_non_matches = FALSE) \n\n\nVisualization\nNow is the best part! First I’ll show my code block, then I’ll break it down line by line.\ncombined |&gt; \n    ggplot(aes(x = `OPS+`, y = `ERA+`)) +\n    geom_mlb_logos(aes(team_abbr = abbr, width = 0.055)) +\n    theme_bw() +\n    scale_x_continuous(limits = c(78, 122)) +\n    scale_y_continuous(limits = c(78, 122)) +\n    geom_hline(aes(yintercept = 100), linetype = \"dashed\") +\n    geom_vline(aes(xintercept = 100), linetype = \"dashed\") +\n    labs(x = \"OPS+\",\n         y = \"ERA+\",\n         title = \"Pitching and Batting Performance for MLB Teams (2025)\",\n         caption = \"Source: Baseball-Reference.com\")\n\nggsave(\"plot1.png\")\n\nggplot(aes(x = `OPS+`, y = `ERA+`)) - Sets my x and y axis elements\ngeom_mlb_logos(aes(team_abbr = abbr, width = 0.055)) - Adds team logos to the plot as if it were a scatterplot. team_abbr = abbr tells the function where my team abbreviations are stored, and the width argument makes the logos much smaller than their original images.\ntheme_bw() - Good looking, professional theme\nscale_x_continuous(limits = c(78, 122)) - Sets the x scale to a more appropriate level. I like to keep it square and centered on my data.\ngeom_hline and geom_vline are helpful to visualize where the league average is. For the stats I chose, the league average is 100, but you can use mean() to find it for other variables.\n\nAnd here’s the finished product:\n\n\n\nPitching and Batting Performance for MLB Teams (2025)"
-  },
-  {
-    "objectID": "tutorial_blog/tutorial.html#wrapping-it-up",
-    "href": "tutorial_blog/tutorial.html#wrapping-it-up",
-    "title": "From Dots to Logos: Improving your Baseball Data Viz ⚾",
-    "section": "Wrapping it Up",
-    "text": "Wrapping it Up\nIn this tutorial, you should have learned how to add logos to your baseball data visualization using mlbplotR. Even though it may seem daunting at first, it’s just as simple as prepping your data well and adding geom_mlb_logos() to an already existing ggplot object.\nNow that you know how to make an interesting viz like this, why not go make your own? Tons of data can be found on Baseball Reference and Fangraphs, or maybe you can learn how to pull your own data using the baseballR package. Happy plotting!"
   }
 ]
