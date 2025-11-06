@@ -6,8 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name">
-<meta name="dcterms.date" content="2025-01-01">
+<meta name="author" content="Timothy Hardy">
 
 <title>Data Acquisition Project – Timothy Hardy - Data Science Portfolio</title>
 <style>
@@ -188,8 +187,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#baseball-hall-of-fame-analysis" id="toc-baseball-hall-of-fame-analysis" class="nav-link active" data-scroll-target="#baseball-hall-of-fame-analysis">Baseball Hall of Fame Analysis</a>
+  <ul class="collapse">
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a>
+  <ul class="collapse">
+  <li><a href="#a-note-on-the-data" id="toc-a-note-on-the-data" class="nav-link" data-scroll-target="#a-note-on-the-data">A Note on the Data</a></li>
+  </ul></li>
+  <li><a href="#eda-highlights" id="toc-eda-highlights" class="nav-link" data-scroll-target="#eda-highlights">EDA Highlights</a>
+  <ul class="collapse">
+  <li><a href="#which-position-produces-the-most-hall-of-famers" id="toc-which-position-produces-the-most-hall-of-famers" class="nav-link" data-scroll-target="#which-position-produces-the-most-hall-of-famers">Which position produces the most Hall of Famers?</a></li>
+  <li><a href="#how-long-are-hof-player-careers" id="toc-how-long-are-hof-player-careers" class="nav-link" data-scroll-target="#how-long-are-hof-player-careers">How long are HoF player careers?</a></li>
+  <li><a href="#does-a-longer-career-mean-a-higher-likelihood-of-getting-in" id="toc-does-a-longer-career-mean-a-higher-likelihood-of-getting-in" class="nav-link" data-scroll-target="#does-a-longer-career-mean-a-higher-likelihood-of-getting-in">Does a longer career mean a higher likelihood of getting in?</a></li>
+  <li><a href="#which-team-produces-the-most-hof-talent" id="toc-which-team-produces-the-most-hof-talent" class="nav-link" data-scroll-target="#which-team-produces-the-most-hof-talent">Which team produces the most HoF talent?</a></li>
+  </ul></li>
+  <li><a href="#where-can-i-learn-more" id="toc-where-can-i-learn-more" class="nav-link" data-scroll-target="#where-can-i-learn-more">Where can I learn more?</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -206,16 +225,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Your Name </p>
+             <p>Timothy Hardy </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 1, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -225,11 +238,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is coming down the pipeline. Check again later.</p>
+<section id="baseball-hall-of-fame-analysis" class="level1">
+<h1>Baseball Hall of Fame Analysis</h1>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>The Baseball Hall of Fame (HoF) is one of the most prestigious institutions in all of American sports. As one of the most historied and iconic sports in the world, being inducted into the HoF is the greatest accomplishment for any baseball player. So, what does it take to get into the Hall of Fame? How long are their careers, and what positions do they play? Which teams have produced the most HoF level talent? Using data, we can find these answers!</p>
+<section id="a-note-on-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="a-note-on-the-data">A Note on the Data</h3>
+<p>The data I’m using for this analysis was gathered from <a href="https://en.wikipedia.org/wiki/List_of_members_of_the_National_Baseball_Hall_of_Fame">this article on Wikipedia</a> which has a list of everyone in the Baseball HoF. If you want to scrape data from Wikipedia yourself, make sure you check out their <a href="https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy">user-agent policy</a>- any time you scrape from their website, make sure to set your user-agent in their requested format so they can contact you if necessary.</p>
+<p>If there’s a table you’re interested in scraping from Wikipedia, it’s actually pretty simple:</p>
+<ol type="1">
+<li>Copy the URL you’re interested in scraping into a Python script</li>
+<li>Use <code>requests.get()</code> to get the html from the website</li>
+<li>Create a <code>BeautifulSoup</code> object with the html</li>
+<li>Use <code>BeautifulSoup.find_all("table")</code> to obtain a list of all the tables on the page</li>
+<li>Identify which table in the list holds the data you’re looking for</li>
+</ol>
+<p>Once this is done, you can convert it to a dataframe (<code>pd.read_html()</code>) for further analysis.</p>
+</section>
+</section>
+<section id="eda-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="eda-highlights">EDA Highlights</h2>
+<section id="which-position-produces-the-most-hall-of-famers" class="level3">
+<h3 class="anchored" data-anchor-id="which-position-produces-the-most-hall-of-famers">Which position produces the most Hall of Famers?</h3>
+<p>Every position in baseball plays differently. Certain positions, such as Pitchers and Shortstops, tend to have a greater impact on the game because they are involved in the play more often than other positions (e.g.&nbsp;RF). In addition to this, non-playing positions (e.g.&nbsp;Managers, GMs, etc.) are admitted into the HoF with relatively high frequency. Let’s look at the distribution:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pos_bar.png" class="img-fluid figure-img"></p>
+<figcaption>Fig. 1: Number of HoF Players by Position</figcaption>
+</figure>
+</div>
+<p>As can be seen by the plot, Pitchers are by far the most common position inducted to the HoF. One might think this is a huge discrepancy, but keep in mind that teams often have a rotation of 5 starting pitchers and 5 more relief pitchers that each get significant playing time, whereas for other positions teams will generally only consistently put in one player.</p>
+<p>Executives (i.e.&nbsp;GMs) are the next most common position in the HoF, followed by Right Field, First Base, and Shortstop. Out of the main roles people could traditionally play in a team, Third Base has the least players in the HoF. Designated Hitter is a relatively new position, so it makes sense it hasn’t produced too many Hall of Famers.</p>
+<p>It might help to view this by position groups, however- infielders and outfielders have very different playstyles, after all.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pos_group_bar.png" class="img-fluid figure-img"></p>
+<figcaption>Fig. 2: Number of HoF Players by Position Group</figcaption>
+</figure>
+</div>
+<p>Infielders are much better represented here, and we can see that more infielders are inducted into the HoF than pitchers. All playable position “groups” have more individuals in the HoF than managerial positions or umpire positions (excluding DH). Infielders tend to have a large impact on a baseball game because of their importance to the defense of a team.</p>
+</section>
+<section id="how-long-are-hof-player-careers" class="level3">
+<h3 class="anchored" data-anchor-id="how-long-are-hof-player-careers">How long are HoF player careers?</h3>
+<p>Generally, for someone to make an impact on the game of baseball, they need to have a long and sustained career. Let’s look at the span of each HoF inductee’s careers:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/career_span_hist.png" class="img-fluid figure-img"></p>
+<figcaption>HoF Career Spans</figcaption>
+</figure>
+</div>
+<p>Most HoF players have a career that spans about 20 years. Any players inducted to the HoF since 2000 have had a career of 10 years or longer. The shortest career span of any HoF inductee is Morgan Bulkeley, an executive for just two years in the late 1800s. The longest career span of any HoF inductee is John Schuerholz, who has worked an astonishing 59 years in the league and is still active with the Atlanta Braves today.</p>
+</section>
+<section id="does-a-longer-career-mean-a-higher-likelihood-of-getting-in" class="level3">
+<h3 class="anchored" data-anchor-id="does-a-longer-career-mean-a-higher-likelihood-of-getting-in">Does a longer career mean a higher likelihood of getting in?</h3>
+<p>It might be reasonable to assume that longer careers would correlate with a higher percentage of induction votes. Let’s see:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/career_votes.png" class="img-fluid figure-img"></p>
+<figcaption>Career Span and Votes</figcaption>
+</figure>
+</div>
+<p>Looking at the plot, it’s hard to tell if there’s any significant correlation. There is a weak numeric correlation, but it looks like nobody with a career span of just 10 years got over 90% of the possible votes. Those who have effectively devoted their lives to baseball by working more than 40 years were voted in unanimously. The few umpires in the HoF received very high voting percentages as well. The Designated Hitters in the HoF also did not capture a large proportion of votes.</p>
+</section>
+<section id="which-team-produces-the-most-hof-talent" class="level3">
+<h3 class="anchored" data-anchor-id="which-team-produces-the-most-hof-talent">Which team produces the most HoF talent?</h3>
+<p>To see which teams have the most storied success and have contributed most to the league, we can take a look at which teams have the most players inducted into the HoF. Here are all of the teams that have 10 or more players in the HoF:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Team</th>
+<th>Players</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>New York Yankees</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>New York Giants</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>St.&nbsp;Louis Cardinals</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>Chicago Cubs</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>Pittsburgh Pirates</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>Cleveland Indians</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>Chicago White Sox</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>Boston Red Sox</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>Philadelphia Phillies</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>Brooklyn Dodgers</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>Detroit Tigers</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>The Yankees and the Giants have contributed the most HoF talent by far compared to any other team. My team, the Chicago Cubs, comes in 5th with 14 players produced. These teams carry some of baseball’s greatest storylines and history.</p>
+</section>
+</section>
+<section id="where-can-i-learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="where-can-i-learn-more">Where can I learn more?</h2>
+<p>If you enjoyed learning about these Hall of Fame players, you’ll definitely enjoy taking a trip to <a href="https://baseball-reference.com">Baseball Reference</a>. You can look more into the top HoF players and look at their stats to see just how good they are. Or maybe you can look at the 2-year long career of Morgan Bulkeley and see what he did that merited such a high honor early in the life of American baseball. You can also look at the <a href="https://mlb.com">official MLB website</a> to read up on current top players and significant stories of the past.</p>
+<p>Lastly, if you want to see more of the specifics of how this works, my code to perform this analysis can be found on <a href="https://github.com/tghardy/baseball_hof_eda">my GitHub</a>. I hope to see you there!</p>
 
 
 <!-- -->
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -684,16 +825,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Data Acquisition Project"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Your Name"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-01-01"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Data Acquisition Project</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Timothy Hardy</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Baseball Hall of Fame Analysis</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Intro</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>The Baseball Hall of Fame (HoF) is one of the most prestigious institutions in all of American sports. As one of the most historied and iconic sports in the world, being inducted into the HoF is the greatest accomplishment for any baseball player. So, what does it take to get into the Hall of Fame? How long are their careers, and what positions do they play? Which teams have produced the most HoF level talent? Using data, we can find these answers!</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>This is coming down the pipeline. Check again later.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### A Note on the Data</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>The data I'm using for this analysis was gathered from <span class="co">[</span><span class="ot">this article on Wikipedia</span><span class="co">](https://en.wikipedia.org/wiki/List_of_members_of_the_National_Baseball_Hall_of_Fame)</span> which has a list of everyone in the Baseball HoF. If you want to scrape data from Wikipedia yourself, make sure you check out their <span class="co">[</span><span class="ot">user-agent policy</span><span class="co">](https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy)</span>- any time you scrape from their website, make sure to set your user-agent in their requested format so they can contact you if necessary.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>If there's a table you're interested in scraping from Wikipedia, it's actually pretty simple:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Copy the URL you're interested in scraping into a Python script</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Use <span class="in">`requests.get()`</span> to get the html from the website</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Create a <span class="in">`BeautifulSoup`</span> object with the html</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Use <span class="in">`BeautifulSoup.find_all("table")`</span> to obtain a list of all the tables on the page</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Identify which table in the list holds the data you're looking for</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Once this is done, you can convert it to a dataframe (<span class="in">`pd.read_html()`</span>) for further analysis.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## EDA Highlights</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### Which position produces the most Hall of Famers?</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Every position in baseball plays differently. Certain positions, such as Pitchers and Shortstops, tend to have a greater impact on the game because they are involved in the play more often than other positions (e.g. RF). In addition to this, non-playing positions (e.g. Managers, GMs, etc.) are admitted into the HoF with relatively high frequency. Let's look at the distribution:</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="al">![Fig. 1: Number of HoF Players by Position](images/pos_bar.png)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>As can be seen by the plot, Pitchers are by far the most common position inducted to the HoF. One might think this is a huge discrepancy, but keep in mind that teams often have a rotation of 5 starting pitchers and 5 more relief pitchers that each get significant playing time, whereas for other positions teams will generally only consistently put in one player.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Executives (i.e. GMs) are the next most common position in the HoF, followed by Right Field, First Base, and Shortstop. Out of the main roles people could traditionally play in a team, Third Base has the least players in the HoF. Designated Hitter is a relatively new position, so it makes sense it hasn't produced too many Hall of Famers.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>It might help to view this by position groups, however- infielders and outfielders have very different playstyles, after all.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="al">![Fig. 2: Number of HoF Players by Position Group](images/pos_group_bar.png)</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Infielders are much better represented here, and we can see that more infielders are inducted into the HoF than pitchers. All playable position "groups" have more individuals in the HoF than managerial positions or umpire positions (excluding DH). Infielders tend to have a large impact on a baseball game because of their importance to the defense of a team.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### How long are HoF player careers?</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Generally, for someone to make an impact on the game of baseball, they need to have a long and sustained career. Let's look at the span of each HoF inductee's careers:</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="al">![HoF Career Spans](images/career_span_hist.png)</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Most HoF players have a career that spans about 20 years. Any players inducted to the HoF since 2000 have had a career of 10 years or longer. The shortest career span of any HoF inductee is Morgan Bulkeley, an executive for just two years in the late 1800s. The longest career span of any HoF inductee is John Schuerholz, who has worked an astonishing 59 years in the league and is still active with the Atlanta Braves today.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Does a longer career mean a higher likelihood of getting in?</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>It might be reasonable to assume that longer careers would correlate with a higher percentage of induction votes. Let's see:</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="al">![Career Span and Votes](images/career_votes.png)</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>Looking at the plot, it's hard to tell if there's any significant correlation. There is a weak numeric correlation, but it looks like nobody with a career span of just 10 years got over 90% of the possible votes. Those who have effectively devoted their lives to baseball by working more than 40 years were voted in unanimously. The few umpires in the HoF received very high voting percentages as well. The Designated Hitters in the HoF also did not capture a large proportion of votes.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### Which team produces the most HoF talent?</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>To see which teams have the most storied success and have contributed most to the league, we can take a look at which teams have the most players inducted into the HoF. Here are all of the teams that have 10 or more players in the HoF:</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Team<span class="pp">|</span>Players<span class="pp">|</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------|-----|</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>New York Yankees<span class="pp">|</span>25<span class="pp">|</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>New York Giants<span class="pp">|</span>20<span class="pp">|</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>St. Louis Cardinals<span class="pp">|</span>17<span class="pp">|</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Chicago Cubs<span class="pp">|</span>14<span class="pp">|</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Pittsburgh Pirates<span class="pp">|</span>14<span class="pp">|</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Cleveland Indians<span class="pp">|</span>13<span class="pp">|</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Chicago White Sox<span class="pp">|</span>13<span class="pp">|</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Boston Red Sox<span class="pp">|</span>12<span class="pp">|</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Philadelphia Phillies<span class="pp">|</span>11<span class="pp">|</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Brooklyn Dodgers<span class="pp">|</span>11<span class="pp">|</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>Detroit Tigers<span class="pp">|</span>10<span class="pp">|</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>The Yankees and the Giants have contributed the most HoF talent by far compared to any other team. My team, the Chicago Cubs, comes in 5th with 14 players produced. These teams carry some of baseball's greatest storylines and history. </span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## Where can I learn more?</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>If you enjoyed learning about these Hall of Fame players, you'll definitely enjoy taking a trip to <span class="co">[</span><span class="ot">Baseball Reference</span><span class="co">](https://baseball-reference.com)</span>. You can look more into the top HoF players and look at their stats to see just how good they are. Or maybe you can look at the 2-year long career of Morgan Bulkeley and see what he did that merited such a high honor early in the life of American baseball. You can also look at the <span class="co">[</span><span class="ot">official MLB website</span><span class="co">](https://mlb.com)</span> to read up on current top players and significant stories of the past.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>Lastly, if you want to see more of the specifics of how this works, my code to perform this analysis can be found on <span class="co">[</span><span class="ot">my GitHub</span><span class="co">](https://github.com/tghardy/baseball_hof_eda)</span>. I hope to see you there!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
