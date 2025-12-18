@@ -24,8 +24,8 @@ website:
             href: projects/eda.html
           - text: "Data Acquisition"
             href: projects/data-acquisition.html
-          - text: "Final Project"
-            href: projects/final-project.html
+          - text: "Final Project (External Link)"
+            href: https://mcooperjay.github.io/NHL-vis/Analysis_writeup.html
     right:
       - icon: github
         href: https://github.com/tghardy

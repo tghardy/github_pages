@@ -34,7 +34,7 @@ Learn how to plot team-based data in R.
 :::
 
 ::: {.g-col-6}
-### [Final Project](projects/final-project.qmd)
+### [Final Project](https://mcooperjay.github.io/NHL-vis/Analysis_writeup.html)
 See how I tackle a data science project beginning to end.
 :::
 
